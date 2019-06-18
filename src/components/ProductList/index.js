@@ -3,7 +3,6 @@ import React from "react";
 export default function ProductList() {
     return (
         <main>
-            
             <section class="shop-area pt-150 pb-100">
                 <div class="container">
                     <div class="row">

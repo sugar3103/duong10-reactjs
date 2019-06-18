@@ -8,17 +8,16 @@ import Footer from "./components/Footer"
 function App() {
   return (
     <>
-
       {/* <!-- header start --> */}
-      <Header />
+      
       {/* <!-- header end --> */}
 
-      {/* <!-- header end --> */}
-      <ProductList />
-      {/* <!-- header end --> */}
+      {/* <!-- ProductList start --> */}
+      
+      {/* <!-- ProductList End --> */}
 
       {/* <!-- footer start --> */}
-      <Footer />
+      
       {/* <!-- footer end --> */}
 
       {/* <!-- Fullscreen search --> */}
