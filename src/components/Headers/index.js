@@ -26,7 +26,7 @@ export default function Headers() {
             </div>
             <div className="col-xl-8 col-lg-6 col-md-8 col-8 d-none d-xl-block">
               <div className="main-menu text-center">
-                <nav id="mobile-menu" style="display: block;">
+                <nav id="mobile-menu" style={{display: "block"}}>
                   <ul>
                     <li>
                       <a href="./index.html">Home</a>
