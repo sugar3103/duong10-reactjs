@@ -1,14 +1,14 @@
 import React from "react";
 
 
-export default function ProductItem({name, price, shop_id, final_price}) {
+export default function ProductItem({name, price, shop_id, final_price, img_url}) {
     return (
         // {/* <!-- ProductItem --> */ }
         < div class="col-xl-4 col-lg-6 col-md-6" >
             <div class="product-wrapper mb-50">
                 <div class="product-img mb-25">
                     <a href="_blank">
-                        <img src="./assets/pro1.jpg" alt="" />
+                        <img src={img_url} alt="" />
                         <img class="secondary-img" src="./assets/pro2.jpg" alt="" />
                     </a>
                     <div class="product-action text-center">
