@@ -3,7 +3,7 @@ import React from "react";
 export default function Footers(){
     return (
         <footer className="footer-area pl-100 pr-100">
-          <div className="footer-area box-90 pt-100 pb-60" data-background="img/bg/footer.jpg" style="background-image: url(&quot;img/bg/footer.jpg&quot;);">
+          <div className="footer-area box-90 pt-100 pb-60" data-background="img/bg/footer.jpg" style={{backgroundImage: "url(&quot;img/bg/footer.jpg&quot;)"}}>
             <div className="container">
               <div className="row">
                 <div className="col-xl-5 col-lg-6 col-md-6 ">
