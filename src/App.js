@@ -17,7 +17,7 @@ function App() {
       {/* <!-- ProductList End --> */}
 
       {/* <!-- footer start --> */}
-      
+      <Footer />
       {/* <!-- footer end --> */}
 
       {/* <!-- Fullscreen search --> */}
