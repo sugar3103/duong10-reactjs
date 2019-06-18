@@ -8,19 +8,19 @@ export default function Header() {
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-6 col-md-6 col-7 col-sm-5 d-flex align-items-center pos-relative">
                             <div class="logo">
-                                <a href="#"><img src="./assets/logo_shop.png" alt="" /></a>
+                                <a href="_blank"><img src="./assets/logo_shop.png" alt="" /></a>
                             </div>
 
                             <div class="category-menu">
                                 <h4>Category</h4>
                                 <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Table lamp</a></li>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Furniture</a></li>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Chair</a></li>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Men</a></li>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Women</a></li>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Cloth</a></li>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i> Trend</a></li>
+                                    <li><a href="_blank"><i class="fas fa-shopping-cart"></i> Table lamp</a></li>
+                                    <li><a href="_blank"><i class="fas fa-shopping-cart"></i> Furniture</a></li>
+                                    <li><a href="_blank"><i class="fas fa-shopping-cart"></i> Chair</a></li>
+                                    <li><a href="_blank"><i class="fas fa-shopping-cart"></i> Men</a></li>
+                                    <li><a href="_blank"><i class="fas fa-shopping-cart"></i> Women</a></li>
+                                    <li><a href="_blank"><i class="fas fa-shopping-cart"></i> Cloth</a></li>
+                                    <li><a href="_blank"><i class="fas fa-shopping-cart"></i> Trend</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -32,7 +32,7 @@ export default function Header() {
                                             <a href="./index.html">Home</a>
                                         </li>
                                         <li>
-                                            <a href="#">Pages</a>
+                                            <a href="_blank">Pages</a>
                                             <ul class="submenu">
                                                 <li>
                                                     <a href="./detail.html">Product Detail</a>
@@ -56,20 +56,20 @@ export default function Header() {
                             <div class="header-right f-right">
                                 <ul>
                                     <li class="search-btn">
-                                        <a class="search-btn nav-search search-trigger" href="#"><i class="fas fa-search"></i></a>
+                                        <a class="search-btn nav-search search-trigger" href="_blank"><i class="fas fa-search"></i></a>
                                     </li>
-                                    <li class="login-btn"><a href="#"><i class="far fa-user"></i></a></li>
-                                    <li class="d-shop-cart"><a href="#"><i class="fas fa-shopping-cart"></i> <span class="cart-count">3</span></a>
+                                    <li class="login-btn"><a href="_blank"><i class="far fa-user"></i></a></li>
+                                    <li class="d-shop-cart"><a href="_blank"><i class="fas fa-shopping-cart"></i> <span class="cart-count">3</span></a>
                                         <ul class="minicart">
                                             <li>
                                                 <div class="cart-img">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro1.jpg" alt="" />
                                                     </a>
                                                 </div>
                                                 <div class="cart-content">
                                                     <h3>
-                                                        <a href="#">Black &amp; White Shoes</a>
+                                                        <a href="_blank">Black &amp; White Shoes</a>
                                                     </h3>
                                                     <div class="cart-price">
                                                         <span class="new">$ 229.9</span>
@@ -79,20 +79,20 @@ export default function Header() {
                                                     </div>
                                                 </div>
                                                 <div class="del-icon">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <i class="far fa-trash-alt"></i>
                                                     </a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="cart-img">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro2.jpg" alt="" />
                                                     </a>
                                                 </div>
                                                 <div class="cart-content">
                                                     <h3>
-                                                        <a href="#">Black &amp; White Shoes</a>
+                                                        <a href="_blank">Black &amp; White Shoes</a>
                                                     </h3>
                                                     <div class="cart-price">
                                                         <span class="new">$ 229.9</span>
@@ -102,20 +102,20 @@ export default function Header() {
                                                     </div>
                                                 </div>
                                                 <div class="del-icon">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <i class="far fa-trash-alt"></i>
                                                     </a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="cart-img">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro3.jpg" alt="" />
                                                     </a>
                                                 </div>
                                                 <div class="cart-content">
                                                     <h3>
-                                                        <a href="#">Black &amp; White Shoes</a>
+                                                        <a href="_blank">Black &amp; White Shoes</a>
                                                     </h3>
                                                     <div class="cart-price">
                                                         <span class="new">$ 229.9</span>
@@ -125,7 +125,7 @@ export default function Header() {
                                                     </div>
                                                 </div>
                                                 <div class="del-icon">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <i class="far fa-trash-alt"></i>
                                                     </a>
                                                 </div>
@@ -138,8 +138,8 @@ export default function Header() {
                                             </li>
                                             <li>
                                                 <div class="checkout-link">
-                                                    <a href="#">Shopping Cart</a>
-                                                    <a class="red-color" href="#">Checkout</a>
+                                                    <a href="_blank">Shopping Cart</a>
+                                                    <a class="red-color" href="_blank">Checkout</a>
                                                 </div>
                                             </li>
                                         </ul>

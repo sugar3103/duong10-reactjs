@@ -23,15 +23,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro1.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro2.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -39,10 +39,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -58,15 +58,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro2.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro3.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -77,10 +77,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -95,25 +95,25 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro3.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro4.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -127,15 +127,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro4.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro5.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -143,10 +143,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -160,15 +160,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro5.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro6.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -176,10 +176,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -193,15 +193,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro6.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro7.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -209,10 +209,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -226,15 +226,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro7.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro8.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -242,10 +242,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -259,15 +259,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro8.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro9.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -278,10 +278,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -295,15 +295,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro9.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro1.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -311,10 +311,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -328,15 +328,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro9.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro1.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -344,10 +344,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -361,15 +361,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro11.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro12.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -377,10 +377,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -394,15 +394,15 @@ export default function ProductList() {
                                         <div class="col-xl-4 col-lg-6 col-md-6">
                                             <div class="product-wrapper mb-50">
                                                 <div class="product-img mb-25">
-                                                    <a href="#">
+                                                    <a href="_blank">
                                                         <img src="./assets/pro10.jpg" alt="" />
                                                         <img class="secondary-img" src="./assets/pro11.jpg" alt="" />
                                                     </a>
                                                     <div class="product-action text-center">
-                                                        <a href="#" title="Shoppingb Cart">
+                                                        <a href="_blank" title="Shoppingb Cart">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>
-                                                        <a href="#" title="Quick View">
+                                                        <a href="_blank" title="Quick View">
                                                             <i class="fas fa-search"></i>
                                                         </a>
 
@@ -413,10 +413,10 @@ export default function ProductList() {
                                                 </div>
                                                 <div class="product-content pr-0">
                                                     <div class="pro-cat mb-10">
-                                                        <a href="#">furniture</a>
+                                                        <a href="_blank">furniture</a>
                                                     </div>
                                                     <h4>
-                                                        <a href="#">Minimal Deco Furniture</a>
+                                                        <a href="_blank">Minimal Deco Furniture</a>
                                                     </h4>
                                                     <div class="product-meta">
                                                         <div class="pro-price">
@@ -453,11 +453,11 @@ export default function ProductList() {
                                 <div class="shop-widget">
                                     <h3 class="shop-title">SHOP BY</h3>
                                     <ul class="shop-link">
-                                        <li><a href="#">Name: A-Z</a></li>
-                                        <li><a href="#">Name: Z-A</a></li>
-                                        <li><a href="#">Price: High to Low</a></li>
-                                        <li><a href="#">Price: Low to High</a></li>
-                                        <li><a href="#">Product: Top Sales</a></li>
+                                        <li><a href="_blank">Name: A-Z</a></li>
+                                        <li><a href="_blank">Name: Z-A</a></li>
+                                        <li><a href="_blank">Price: High to Low</a></li>
+                                        <li><a href="_blank">Price: Low to High</a></li>
+                                        <li><a href="_blank">Product: Top Sales</a></li>
                                     </ul>
                                 </div>
 
@@ -466,7 +466,7 @@ export default function ProductList() {
                                     <ul class="shop-sidebar-product">
                                         <li>
                                             <div class="side-pro-img">
-                                                <a href="#"><img src="./assets/shop-rsp3.jpg" alt="" /></a>
+                                                <a href="_blank"><img src="./assets/shop-rsp3.jpg" alt="" /></a>
                                             </div>
                                             <div class="side-pro-content">
                                                 <div class="side-pro-rating">
@@ -476,7 +476,7 @@ export default function ProductList() {
                                                     <i class="fas fa-star"></i>
                                                     <i class="fas fa-star"></i>
                                                 </div>
-                                                <h5><a href="#">Raglan Baseball-Style</a></h5>
+                                                <h5><a href="_blank">Raglan Baseball-Style</a></h5>
                                                 <div class="side-pro-price">
                                                     <span>$119.00 USD</span>
                                                 </div>
@@ -484,7 +484,7 @@ export default function ProductList() {
                                         </li>
                                         <li>
                                             <div class="side-pro-img">
-                                                <a href="#"><img src="./assets/shop-rsp2.jpg" alt="" /></a>
+                                                <a href="_blank"><img src="./assets/shop-rsp2.jpg" alt="" /></a>
                                             </div>
                                             <div class="side-pro-content">
                                                 <div class="side-pro-rating">
@@ -494,7 +494,7 @@ export default function ProductList() {
                                                     <i class="fas fa-star"></i>
                                                     <i class="fas fa-star"></i>
                                                 </div>
-                                                <h5><a href="#">Raglan Baseball-Style</a></h5>
+                                                <h5><a href="_blank">Raglan Baseball-Style</a></h5>
                                                 <div class="side-pro-price">
                                                     <span>$119.00 USD</span>
                                                 </div>
@@ -502,7 +502,7 @@ export default function ProductList() {
                                         </li>
                                         <li>
                                             <div class="side-pro-img">
-                                                <a href="#"><img src="./assets/shop-rsp4.jpg" alt="" /></a>
+                                                <a href="_blank"><img src="./assets/shop-rsp4.jpg" alt="" /></a>
                                             </div>
                                             <div class="side-pro-content">
                                                 <div class="side-pro-rating">
@@ -512,7 +512,7 @@ export default function ProductList() {
                                                     <i class="fas fa-star"></i>
                                                     <i class="fas fa-star"></i>
                                                 </div>
-                                                <h5><a href="#">Raglan Baseball-Style</a></h5>
+                                                <h5><a href="_blank">Raglan Baseball-Style</a></h5>
                                                 <div class="side-pro-price">
                                                     <span>$119.00 USD</span>
                                                 </div>
@@ -523,7 +523,7 @@ export default function ProductList() {
 
                                 <div class="shop-widget">
                                     <div class="shop-sidebar-banner">
-                                        <a href="#"><img src="./assets/shop-banner.jpg" alt="" /></a>
+                                        <a href="_blank"><img src="./assets/shop-banner.jpg" alt="" /></a>
                                     </div>
                                 </div>
                             </div>
