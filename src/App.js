@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       {/* <!-- header start --> */}
-      <Headers />
+      
       {/* <!-- header end --> */}
 
       {/* <!-- ProductList start --> */}
@@ -17,7 +17,7 @@ function App() {
       {/* <!-- ProductList End --> */}
 
       {/* <!-- footer start --> */}
-      <Footers />
+      
       {/* <!-- footer end --> */}
 
       {/* <!-- Fullscreen search --> */}

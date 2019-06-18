@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footers(){
     return (
-        <div class="footer-area pl-100 pr-100">
+        <footer class="footer-area pl-100 pr-100">
           <div class="footer-area box-90 pt-100 pb-60" data-background="img/bg/footer.jpg" style="background-image: url(&quot;img/bg/footer.jpg&quot;);">
             <div class="container">
               <div class="row">
@@ -69,6 +69,6 @@ export default function Footers(){
               </div>
             </div>
           </div>
-        </div>
+        </footer>
     )
 }

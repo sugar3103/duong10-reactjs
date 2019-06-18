@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Headers() {
   return (
-    <>
+    <header>
       <div id="header-sticky" class="header-area box-90 sticky-header">
         <div class="container-fluid">
           <div class="row align-items-center">
@@ -153,6 +153,6 @@ export default function Headers() {
           </div>
         </div>
       </div>
-    </>
+    </header>
   )
 }
