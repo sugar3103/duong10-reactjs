@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       {/* <!-- header start --> */}
-      
+      <Headers />
       {/* <!-- header end --> */}
 
       {/* <!-- ProductList start --> */}
@@ -17,17 +17,17 @@ function App() {
       {/* <!-- ProductList End --> */}
 
       {/* <!-- footer start --> */}
-      
+      <Footers />
       {/* <!-- footer end --> */}
 
       {/* <!-- Fullscreen search --> */}
-      <div class="search-wrap">
-        <div class="search-inner">
-          <i class="fas fa-times search-close" id="search-close"></i>
-          <div class="search-cell">
+      <div className="search-wrap">
+        <div className="search-inner">
+          <i className="fas fa-times search-close" id="search-close"></i>
+          <div className="search-cell">
             <form method="get">
-              <div class="search-field-holder">
-                <input type="search" class="main-search-input" placeholder="Search Entire Store..." />
+              <div className="search-field-holder">
+                <input type="search" className="main-search-input" placeholder="Search Entire Store..." />
               </div>
             </form>
           </div>
