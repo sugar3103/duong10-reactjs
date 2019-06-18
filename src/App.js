@@ -9,15 +9,15 @@ function App() {
   return (
     <>
       {/* <!-- header start --> */}
-      
+      <Header />
       {/* <!-- header end --> */}
 
       {/* <!-- ProductList start --> */}
-      
+      <ProductList />
       {/* <!-- ProductList End --> */}
 
       {/* <!-- footer start --> */}
-      
+      <Footer />
       {/* <!-- footer end --> */}
 
       {/* <!-- Fullscreen search --> */}
