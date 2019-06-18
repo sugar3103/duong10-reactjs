@@ -8,34 +8,34 @@ import Footer from "./components/Footer"
 function App() {
   return (
     <>
+      <body>
+        {/* <!-- header start --> */}
+        <Header />
+        {/* <!-- header end --> */}
+        
+        {/* <!-- header end --> */}
+        <ProductList />
+        {/* <!-- header end --> */}
 
-      {/* <!-- header start --> */}
-      <Header />
-      {/* <!-- header end --> */}
+        {/* <!-- footer start --> */}
+        <Footer />
+        {/* <!-- footer end --> */}
 
-      {/* <!-- shop-area start --> */}
-      <ProductList />
-      {/* <!-- shop-area end --> */}
-
-      {/* <!-- footer start --> */}
-      <Footer />
-      {/* <!-- footer end --> */}
-
-      {/* <!-- Fullscreen search --> */}
-      <div class="search-wrap">
-        <div class="search-inner">
-          <i class="fas fa-times search-close" id="search-close"></i>
-          <div class="search-cell">
-            <form method="get">
-              <div class="search-field-holder">
-                <input type="search" class="main-search-input" placeholder="Search Entire Store..." />
-              </div>
-            </form>
+        {/* <!-- Fullscreen search --> */}
+        <div class="search-wrap">
+          <div class="search-inner">
+            <i class="fas fa-times search-close" id="search-close"></i>
+            <div class="search-cell">
+              <form method="get">
+                <div class="search-field-holder">
+                  <input type="search" class="main-search-input" placeholder="Search Entire Store..." />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-      {/* <!-- end fullscreen search --> */}
-
+        {/* <!-- end fullscreen search --> */}
+      </body>
     </>
   );
 }
