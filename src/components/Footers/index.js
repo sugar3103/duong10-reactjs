@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Footer(){
+export default function Footers(){
     return (
         <footer class="footer-area pl-100 pr-100">
           <div class="footer-area box-90 pt-100 pb-60" data-background="img/bg/footer.jpg" style="background-image: url(&quot;img/bg/footer.jpg&quot;);">

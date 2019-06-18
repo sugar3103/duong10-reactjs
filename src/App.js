@@ -1,15 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from "./components/Header"
+import Headers from "./components/Headers"
 import ProductList from "./components/ProductList"
-import Footer from "./components/Footer"
+import Footers from "./components/Footers"
 
 function App() {
   return (
     <>
       {/* <!-- header start --> */}
-      <Header />
+      <Headers />
       {/* <!-- header end --> */}
 
       {/* <!-- ProductList start --> */}
@@ -17,7 +17,7 @@ function App() {
       {/* <!-- ProductList End --> */}
 
       {/* <!-- footer start --> */}
-      
+      <Footers />
       {/* <!-- footer end --> */}
 
       {/* <!-- Fullscreen search --> */}
