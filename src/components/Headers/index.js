@@ -154,5 +154,5 @@ export default function Headers() {
         </div>
       </div>
     </header>
-  )
+  );
 }
