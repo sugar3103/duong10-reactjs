@@ -24,7 +24,8 @@ export default function ProductList() {
                                         
                                         {/* <!-- ProductItem --> */}
                                         {result.data.map(ele => 
-                                            <ProductItem {...ele}
+                                            <ProductItem name={ele.name} price={ele.price} shop_id={ele.shop_id} 
+                                            final_price={ele.final_price} img_url={ele.img_url}
                                              />
                                             )}
                                           

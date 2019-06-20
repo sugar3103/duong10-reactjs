@@ -3,7 +3,7 @@ import Headers from "../Headers";
 import CartItem from "../CartItem";
 
 
-export default function ProductItem({name, price, shop_id, final_price, img_url, sendText}) {
+export default function ProductItem({name, price, shop_id, final_price, img_url}, sendText) {
     
     const sendTextToParent = () => {
         const text = `${name}`;
