@@ -24,15 +24,11 @@ export default function ProductList() {
                                         
                                         {/* <!-- ProductItem --> */}
                                         {result.data.map(ele => 
-                                            <ProductItem name={ele.name} price={ele.price}
-                                            final_price={ele.final_price} shop_id={ele.shop_id} 
-                                            img_url={ele.img_url}
+                                            <ProductItem {...ele}
                                              />
                                             )}
                                           
                                                     
-                                                    
-                                            
                                             
                             
                                     </div>

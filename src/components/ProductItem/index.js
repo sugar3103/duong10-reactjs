@@ -1,10 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
+import Headers from "../Headers";
+import CartItem from "../CartItem";
 
 
-export default function ProductItem({name, price, shop_id, final_price, img_url}) {
+export default function ProductItem({name, price, shop_id, final_price, img_url, sendText}) {
+    
+    const sendTextToParent = () => {
+        const text = `${name}`;
+        console.log(`shoppingb name  ${text}`);
+        sendText(text)
+    };
     return (
-        // {/* <!-- ProductItem --> */ }
-        < div className="col-xl-4 col-lg-6 col-md-6" >
+        <>
+         {/* <!-- ProductItem --> */ }
+        
+        <div className="col-xl-4 col-lg-6 col-md-6" >
             <div className="product-wrapper mb-50">
                 <div className="product-img mb-25">
                     <a href="_blank">
@@ -12,7 +22,7 @@ export default function ProductItem({name, price, shop_id, final_price, img_url}
                         <img className="secondary-img" src="./assets/pro2.jpg" alt="" />
                     </a>
                     <div className="product-action text-center">
-                        <a href="_blank" title="Shoppingb Cart">
+                        <a href="#" title="Shoppingb Cart" onClick={sendTextToParent}>
                             <i className="fas fa-shopping-cart"></i>
                         </a>
                         <a href="_blank" title="Quick View">
@@ -21,6 +31,7 @@ export default function ProductItem({name, price, shop_id, final_price, img_url}
 
                     </div>
                 </div>
+                
                 <div className="product-content pr-0">
                     <div className="pro-cat mb-10">
                         <a href="_blank">{shop_id}</a>
@@ -37,6 +48,7 @@ export default function ProductItem({name, price, shop_id, final_price, img_url}
                 </div>
             </div>
         </div >
+        </>
         // {/* <!-- /ProductItem --> */ }
     )
 }
