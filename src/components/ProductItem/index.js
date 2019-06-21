@@ -1,21 +1,21 @@
-import React, {useState} from "react";
-import Headers from "../Headers";
-import CartItem from "../CartItem";
+import React from "react";
 
-
-export default function ProductItem({name, price, shop_id, final_price, img_url}, sendText) {
+export default function ProductItem({name, price, shop_id, final_price, img_url, sendText}) {
     
     const sendTextToParent = () => {
         const text = `${name}`;
-        console.log(`shoppingb name  ${text}`);
-        sendText(text)
+        const theURL = `${img_url}`;
+        const thePrice = `${price}`;
+        const theFinalPrice = `${final_price}`;
+        console.log(`ProductItem  ${text}`);
+        sendText(text, theURL, thePrice, theFinalPrice)
     };
+    
     return (
         <>
          {/* <!-- ProductItem --> */ }
-        
         <div className="col-xl-4 col-lg-6 col-md-6" >
-            <div className="product-wrapper mb-50">
+            <div key={shop_id} className="product-wrapper mb-50">
                 <div className="product-img mb-25">
                     <a href="_blank">
                         <img src={img_url} alt="" />

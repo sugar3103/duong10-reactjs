@@ -10,11 +10,12 @@ function App() {
   return (
     <>
       {/* <!-- header start --> */}
-      <Headers />
+      
       {/* <!-- header end --> */}
 
       {/* <!-- ProductList start --> */}
-      <ProductList />
+      <div id="productlist"></div>
+      
       {/* <!-- ProductList End --> */}
 
       {/* <!-- footer start --> */}

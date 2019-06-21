@@ -4,9 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import CartItem from './components/CartItem';
+import ProductList from './components/ProductList';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<CartItem />, document.getElementById('minicart'));
+ReactDOM.render(<ProductList />, document.getElementById('productlist'));
+// ReactDOM.render(<CartItem />, document.getElementById('minicart'));
+
 
 
 // If you want your app to work offline and load faster, you can change

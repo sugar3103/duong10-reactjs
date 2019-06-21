@@ -1,31 +1,25 @@
 import React, { useState } from "react";
-import ProductItem from "../ProductItem";
 
-export default function CartItem() {
-    const [text, setText] = useState("");
-    const sendText = value => {
-        console.log(value);
-        setText(value)
-
-    }
-
+export default function CartItem({text, theURL, thePrice, theFinalPrice}) {
+    
+        
     return (
-        <>
-            <ProductItem sendText={sendText} />
+        <>  
             <li>
                 <div className="cart-img">
                     <a href="_blank">
-                        <img src="./assets/pro1.jpg" alt="" />
+                        <img src={theURL} alt="" />
                     </a>
                 </div>
+
                 <div className="cart-content">
                     <h3>
-                        <a href="_blank">Black &amp; {text}</a>
+                        <a href="_blank">{text}</a>
                     </h3>
                     <div className="cart-price">
-                        <span className="new">final_price</span>
+                        <span className="new">{theFinalPrice}</span>
                         <span>
-                            <del>price</del>
+                            <del>{thePrice}</del>
                         </span>
                     </div>
                 </div>
@@ -42,6 +36,7 @@ export default function CartItem() {
                     <span className="f-right">$300.0</span>
                 </div>
             </li>
+
         </>
     )
 }
