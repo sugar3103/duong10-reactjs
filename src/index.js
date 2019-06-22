@@ -7,7 +7,7 @@ import CartItem from './components/CartItem';
 import ProductList from './components/ProductList';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<ProductList />, document.getElementById('productlist'));
+// ReactDOM.render(<ProductList />, document.getElementById('productlist'));
 // ReactDOM.render(<CartItem />, document.getElementById('minicart'));
 
 

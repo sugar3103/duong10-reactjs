@@ -1,25 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Headers from "./components/Headers"
-import ProductList from "./components/ProductList"
-import Footers from "./components/Footers"
+import ProductList from "./components/ProductList";
+import RegisterForm from "./components/RegisterForm";
+import LoginForm from "./components/LoginForm";
+import Layout from "./components/Layout";
 
 function App() {
-  
+
   return (
-    <>
+    <Layout>
       {/* <!-- header start --> */}
-      
+
       {/* <!-- header end --> */}
 
       {/* <!-- ProductList start --> */}
-      <div id="productlist"></div>
-      
+      <LoginForm />
+
       {/* <!-- ProductList End --> */}
 
       {/* <!-- footer start --> */}
-      <Footers />
       {/* <!-- footer end --> */}
 
       {/* <!-- Fullscreen search --> */}
@@ -37,7 +37,7 @@ function App() {
       </div>
       {/* <!-- end fullscreen search --> */}
 
-    </>
+    </Layout>
   );
 }
 

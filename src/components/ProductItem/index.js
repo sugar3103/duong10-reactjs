@@ -4,7 +4,7 @@ export default function ProductItem({name, price, shop_id, final_price, img_url,
     
     const sendTextToParent = () => {
         console.log(`ProductItem  ${name}`);
-        sendText(name, img_url, price, final_price)    
+            
     };
     
     return (
