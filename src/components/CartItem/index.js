@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export default function CartItem({text, theURL, thePrice, theFinalPrice}) {
     
-        
     return (
         <>  
             <li>

@@ -123,7 +123,6 @@ export default function ProductList() {
                                                     final_price={ele.final_price} img_url={ele.img_url} sendText={sendText}
                                                 />
                                             )}
-
                                         </div>
                                     </div>
                                 </div>
