@@ -3,7 +3,7 @@ import React from "react";
 export default function ProductItem(props, clickFromItem) {
     const sendTextToParent = (e) =>{
         e.preventDefault();
-        clickFromItem(props.name)
+        props.clickFromItem(props.name)
     }
     return (
         <>
