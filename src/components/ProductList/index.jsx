@@ -3,7 +3,8 @@ import ProductItem from "../ProductItem";
 
 
 
-export default function ProductList(props, clickFromItem) {
+export default function ProductList(props) {
+    
     return (
         <>
             <main>
@@ -27,7 +28,7 @@ export default function ProductList(props, clickFromItem) {
 
                                             {/* <!-- ProductItem --> */}
                                             {props.data.map(ele=>
-                                                <ProductItem {...ele} clickFromItem={clickFromItem}/>
+                                                <ProductItem {...ele} clickFromItem={props.clickFromItem}/>
                                                 )}
                                             
                                         </div>
@@ -56,10 +57,10 @@ export default function ProductList(props, clickFromItem) {
                                     <div className="shop-widget">
                                         <h3 className="shop-title">SHOP BY</h3>
                                         <ul className="shop-link">
-                                            <li><a href="_blank">Name: A-Z</a></li>
-                                            <li><a href="_blank">Name: Z-A</a></li>
-                                            <li><a href="_blank">Price: High to Low</a></li>
-                                            <li><a href="_blank">Price: Low to High</a></li>
+                                            <li><a href="_blank" onClick={props.aToZ}>Name: A-Z</a></li>
+                                            <li><a href="_blank" onClick={props.zToA}>Name: Z-A</a></li>
+                                            <li><a href="_blank" onClick={props.highToLow}>Price: High to Low</a></li>
+                                            <li><a href="_blank" onClick={props.lowToHigh}>Price: Low to High</a></li>
                                             <li><a href="_blank">Product: Top Sales</a></li>
                                         </ul>
                                     </div>

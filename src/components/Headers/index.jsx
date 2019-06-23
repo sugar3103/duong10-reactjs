@@ -1,8 +1,9 @@
 import React from "react";
 import CartIem from "../CartItem";
 
-export default function Headers({name}) {
-
+export default function Headers(props) {
+  
+  
   return (
     <header>
       <div id="header-sticky" className="header-area box-90 sticky-header">
@@ -64,7 +65,8 @@ export default function Headers({name}) {
                   <li className="d-shop-cart"><a href="_blank"><i className="fas fa-shopping-cart"></i> <span className="cart-count">"CartCount"</span></a>
                     <ul className="minicart" id="minicart">
                       {/* CartItem start */}
-                      <CartIem name={name}/>
+                      <CartIem name={props.name} img_url={props.img_url} price={props.price} 
+                      final_price={props.final_price} />
                       {/* CartItem End */}
                       <li>
                         <div className="checkout-link">
