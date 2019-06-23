@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function CartItem({text, theURL, thePrice, theFinalPrice}) {
+export default function CartItem({name}) {
     
     return (
         <>  
             <li>
                 <div className="cart-img">
                     <a href="_blank">
-                        <img src={theURL} alt="" />
+                        <img src="{props.img_url}" alt="" />
                     </a>
                 </div>
 
                 <div className="cart-content">
                     <h3>
-                        <a href="_blank">{text}</a>
+                        <a href="_blank">{name}</a>
                     </h3>
                     <div className="cart-price">
-                        <span className="new">{theFinalPrice}</span>
+                        <span className="new">"props.final_price"</span>
                         <span>
-                            <del>{thePrice}</del>
+                            <del>"props.price"</del>
                         </span>
                     </div>
                 </div>

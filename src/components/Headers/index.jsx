@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import CartItem from '../CartItem'
+import React from "react";
+import CartIem from "../CartItem";
 
-export default function Headers() {
-
+export default function Headers({name}) {
 
   return (
     <header>
@@ -65,7 +64,7 @@ export default function Headers() {
                   <li className="d-shop-cart"><a href="_blank"><i className="fas fa-shopping-cart"></i> <span className="cart-count">"CartCount"</span></a>
                     <ul className="minicart" id="minicart">
                       {/* CartItem start */}
-
+                      <CartIem name={name}/>
                       {/* CartItem End */}
                       <li>
                         <div className="checkout-link">

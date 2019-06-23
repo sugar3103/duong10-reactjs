@@ -1,24 +1,22 @@
 import React from "react";
 
-export default function ProductItem({name, price, shop_id, final_price, img_url, sendText}) {
-    
-    const sendTextToParent = () => {
-        console.log(`ProductItem  ${name}`);
-            
-    };
-    
+export default function ProductItem(props, clickFromItem) {
+    const sendTextToParent = (e) =>{
+        e.preventDefault();
+        clickFromItem(props.name)
+    }
     return (
         <>
          {/* <!-- ProductItem --> */ }
-        <div className="col-xl-4 col-lg-6 col-md-6" >
-            <div key={shop_id} className="product-wrapper mb-50">
+        <div key={props.product_id} className="col-xl-4 col-lg-6 col-md-6" >
+            <div  className="product-wrapper mb-50">
                 <div className="product-img mb-25">
                     <a href="_blank">
-                        <img src={img_url} alt="" />
+                        <img src={props.img_url} alt="" />
                         <img className="secondary-img" src="./assets/pro2.jpg" alt="" />
                     </a>
                     <div className="product-action text-center">
-                        <a href="#" title="Shoppingb Cart" onClick={sendTextToParent}>
+                        <a href="_blank" title="Shoppingb Cart" onClick={sendTextToParent}>
                             <i className="fas fa-shopping-cart"></i>
                         </a>
                         <a href="_blank" title="Quick View">
@@ -30,15 +28,15 @@ export default function ProductItem({name, price, shop_id, final_price, img_url,
                 
                 <div className="product-content pr-0">
                     <div className="pro-cat mb-10">
-                        <a href="_blank">{shop_id}</a>
+                        <a href="_blank">{props.shop_id}</a>
                     </div>
                     <h4>
-                        <a href="_blank">{name}</a>
+                        <a href="_blank">{props.name}</a>
                     </h4>
                     <div className="product-meta">
                         <div className="pro-price">
-                            <span>{final_price}</span>
-                            <span className="old-price">{price}</span>
+                            <span>{props.final_price}</span>
+                            <span className="old-price">{props.price}</span>
                         </div>
                     </div>
                 </div>

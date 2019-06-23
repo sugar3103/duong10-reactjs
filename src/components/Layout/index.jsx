@@ -3,10 +3,10 @@ import Headers from '../Headers';
 import Footers from '../Footers';
 
 
-export default function Layout(props){
+export default function Layout(props, {name}){
     return(
         <>
-            <Headers />
+            <Headers name={name}/>
             {props.children}
             <Footers />
         </>

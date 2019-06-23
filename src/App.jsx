@@ -1,21 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ProductList from "./components/ProductList";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
 import Layout from "./components/Layout";
+import result from "./data.json"
+
 
 function App() {
-
+  const [name, setName] = useState("");
+  const onClickBtn = value => {
+    setName(value)
+  };
   return (
-    <Layout>
+    <Layout name={name}>
       {/* <!-- header start --> */}
 
       {/* <!-- header end --> */}
-
+      
       {/* <!-- ProductList start --> */}
-      <LoginForm />
+      <ProductList {...result} clickFromItem={onClickBtn}/>
 
       {/* <!-- ProductList End --> */}
 

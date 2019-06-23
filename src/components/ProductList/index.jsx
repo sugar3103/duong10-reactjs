@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import ProductItem from "../ProductItem";
-import result from "../../data.json";
-import Headers from "../Headers";
-import CartItem from "../CartItem"
-
-export default function ProductList() {
 
 
+
+export default function ProductList(props, clickFromItem) {
     return (
         <>
             <main>
@@ -29,11 +26,10 @@ export default function ProductList() {
                                         <div className="row">
 
                                             {/* <!-- ProductItem --> */}
-                                            {result.data.map(ele =>
-                                                <ProductItem name={ele.name} price={ele.price} shop_id={ele.shop_id}
-                                                    final_price={ele.final_price} img_url={ele.img_url}
-                                                />
-                                            )}
+                                            {props.data.map(ele=>
+                                                <ProductItem {...ele} clickFromItem={clickFromItem}/>
+                                                )}
+                                            
                                         </div>
                                     </div>
                                 </div>
