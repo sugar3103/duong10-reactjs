@@ -6,8 +6,7 @@ import Footers from '../Footers';
 export default function Layout(props){
     return(
         <>
-            <Headers name={props.name} img_url={props.img_url} price={props.price} 
-                      final_price={props.final_price}/>
+            <Headers {...props}/>
             {props.children}
             <Footers />
         </>

@@ -92,6 +92,11 @@ textarea:focus {
     outline: 0
 }
 
+.green {
+    color: green;
+    font-size: 20px;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -804,7 +809,7 @@ ul.minicart .cart-price span {
 }
 
 .total-price {
-    border-top: 1px solid #cacadb;
+    border-top: 3px solid #cacadb;
     overflow: hidden;
     padding-top: 25px;
     margin-top: 10px;
@@ -881,6 +886,12 @@ ul.minicart .cart-price span {
     font-weight: bold;
     font-size: 50px;
     color: red;
+}
+
+.toDoList p {
+    font-weight: bolder;
+    font-size: 13px;
+    color: black
 }
 
 .close-icon {

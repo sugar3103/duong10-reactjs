@@ -13,20 +13,28 @@ import result from "./data.json"
 
 function App() {
   const data = {};
+  const dataItemCart = {};
+
   const [name, setName] = useState("");
   const [img_url, setImg_url] = useState("");
   const [price, setPrice] = useState("");
   const [final_price, setfinal_price] = useState("");
-  const [itemInCart, setItemInCart] = useState({})
-  const [dataGlobal, setdataGlobal] = useState(result)
+  const [itemInCart, setItemInCart] = useState([]);
+  const [dataGlobal, setdataGlobal] = useState(result);
+  const [totalCart, setTotalCart] = useState(0);
+  const [totalItem, setTotalItem] = useState(0);
   const onClickBtn = (name, img_url, price, final_price) => {
     setName(name)
     setImg_url(img_url)
     setPrice(price)
     setfinal_price(final_price)
-    setItemInCart(itemInCart + [name, price])
+    itemInCart.push({"name": name, "img_url": img_url, "final_price" : final_price});
+    setTotalCart(itemInCart.map(ele => ele.final_price).reduce((a,b) => a+b))
+    setTotalItem(totalItem + 1)
   };
-  console.log(itemInCart)
+  dataItemCart.data = itemInCart
+  console.log(totalCart)
+  console.log(totalItem)
 
   const lowToHigh = (e) => {
     e.preventDefault();
@@ -63,8 +71,7 @@ function App() {
 
 
   return (
-    <Layout name={name} img_url={img_url} price={price}
-      final_price={final_price}>
+    <Layout {...dataItemCart} totalCart={totalCart} totalItem={totalItem}>
       {/* <!-- header start --> */}
 
       {/* <!-- header end --> */}

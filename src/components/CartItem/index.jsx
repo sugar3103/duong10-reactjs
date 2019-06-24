@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function CartItem(props) {
-
     return (
         <>  
             <li>
@@ -14,6 +13,7 @@ export default function CartItem(props) {
 
                 <div className="cart-content">
                     <h3>
+                        
                         <a href="_blank">{props.name}</a>
                     </h3>
                     <div className="cart-price">
@@ -30,12 +30,7 @@ export default function CartItem(props) {
                 </div>
             </li>
 
-            <li>
-                <div className="total-price">
-                    <span className="f-left">Total:</span>
-                    <span className="f-right">${props.final_price}</span>
-                </div>
-            </li>
+            
 
         </>
     )

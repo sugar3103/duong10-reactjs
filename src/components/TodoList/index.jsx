@@ -21,18 +21,19 @@ export default function TodoList(props) {
 
 
                             {/* <!-- ProductItem --> */}
-                            <p>Lab: Tạo một Component: "Giỏ hàng" nhận vào giá trị bằng React props <i class="fas fa-check"></i></p>
-                            <p>Lab: Tạo môt sự kiện cho nút "Thêm vào giỏ hàng" của 1 sản phẩm <i class="fas fa-check"></i></p>
-                            <p>Lab: Truyền giá trị đến Component "Giỏ hàng" sau mỗi lần nhấp vào nút "Thêm vào giỏ hàng" <i class="fas fa-check"></i></p>
-                            <p>Lab: Tính tổng giá tiền của các sản phẩm trong giỏ hàng</p>
-                            <p>Lab: Tạo một nút có chức năng xếp danh sách sản phẩm theo giá từ cao đến thấp <i class="fas fa-check"></i></p>
-                            <p>Lab: Tạo một nút có chức năng xếp danh sách sản phẩm theo giá từ thấp đến cao <i class="fas fa-check"></i></p>
-                            <p>Lab: Tạo một component "Tìm kiếm sản phẩm" <i class="fas fa-check"></i></p>
-                            <p>Lab: Tạo một giao diện đăng ký bằng cách sử dụng Form <i class="fas fa-check"></i></p>
-                            <p>Lab: Tạo một giao diện đăng nhập bằng cách sử dụng Form <i class="fas fa-check"></i></p>
-                            <p>Lab: Tạo một ứng dụng đồng hồ chạy liên tục <i class="fas fa-check"></i></p>
-                            <p>Lab: Tạo một trang chi tiết sản phẩm <i class="fas fa-check"></i></p>
-
+                            <div class="toDoList">
+                                <p>Lab: Tạo một Component: "Giỏ hàng" nhận vào giá trị bằng React props <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tạo môt sự kiện cho nút "Thêm vào giỏ hàng" của 1 sản phẩm <i class="fas fa-check green"></i></p>
+                                <p>Lab: Truyền giá trị đến Component "Giỏ hàng" sau mỗi lần nhấp vào nút "Thêm vào giỏ hàng" <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tính tổng giá tiền của các sản phẩm trong giỏ hàng <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tạo một nút có chức năng xếp danh sách sản phẩm theo giá từ cao đến thấp <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tạo một nút có chức năng xếp danh sách sản phẩm theo giá từ thấp đến cao <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tạo một component "Tìm kiếm sản phẩm" <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tạo một giao diện đăng ký bằng cách sử dụng Form <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tạo một giao diện đăng nhập bằng cách sử dụng Form <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tạo một ứng dụng đồng hồ chạy liên tục <i class="fas fa-check green"></i></p>
+                                <p>Lab: Tạo một trang chi tiết sản phẩm <i class="fas fa-check green"></i></p>
+                            </div>
                         </div>
                         {/* <!--SideBar --> */}
                         <div className="col-xl-3 col-lg-4">
