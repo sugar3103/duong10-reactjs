@@ -35,8 +35,8 @@ export default function ProductItem(props) {
                     </h4>
                     <div className="product-meta">
                         <div className="pro-price">
-                            <span>{props.final_price}</span>
-                            <span className="old-price">{props.price}</span>
+                            <span>{props.final_price.toLocaleString()}</span>
+                            <span className="old-price">{props.price.toLocaleString()}</span>
                         </div>
                     </div>
                 </div>

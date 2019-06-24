@@ -60,7 +60,7 @@ export default function Headers(props) {
                 <ul>
                   <div className="total-price">
                     <span className="f-left">Total: </span>
-                    <span className="f-right">$ {props.totalCart}</span>
+                    <span className="f-right">{props.totalCart.toLocaleString()} VND</span>
                   </div>
                   <li className="search-btn">
                     <a className="search-btn nav-search search-trigger" href="_blank"><i className="fas fa-search"></i></a>
