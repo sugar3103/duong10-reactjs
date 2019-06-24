@@ -5,23 +5,6 @@ import SearchItem from "../SearchItem"
 
 
 export default function ProductList(props) {
-    function clock() {// We create a new Date object and assign it to a variable called "time".
-        var time = new Date(),
-        // Access the "getHours" method on the Date object with the dot accessor.
-        hours = time.getHours(),
-        // Access the "getMinutes" method with the dot accessor.
-        minutes = time.getMinutes(),
-        seconds = time.getSeconds();
-        document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
-
-        function harold(standIn) {
-            if (standIn < 10) {
-                standIn = '0' + standIn
-            }
-            return standIn;
-        }
-    }
-    setInterval(clock, 1000);
     return (
         <>
             <main >
@@ -31,7 +14,6 @@ export default function ProductList(props) {
                             <div className="col-xl-9 col-lg-8">
                                 {/* <!-- tab filter --> */}
 
-                                <div class="clock"></div>
 
                                 <div className="row mb-10">
                                     <div className="col-xl-5 col-lg-6 col-md-6">

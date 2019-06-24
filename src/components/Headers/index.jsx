@@ -2,19 +2,37 @@ import React from "react";
 import CartIem from "../CartItem";
 
 export default function Headers(props) {
+  function clock() {// We create a new Date object and assign it to a variable called "time".
+        var time = new Date(),
+        // Access the "getHours" method on the Date object with the dot accessor.
+        hours = time.getHours(),
+        // Access the "getMinutes" method with the dot accessor.
+        minutes = time.getMinutes(),
+        seconds = time.getSeconds();
+        document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
 
+        function harold(standIn) {
+            if (standIn < 10) {
+                standIn = '0' + standIn
+            }
+            return standIn;
+        }
+    }
+    setInterval(clock, 500);
 
   return (
     <header>
       <div id="header-sticky" className="header-area box-90 sticky-header">
+        
         <div className="container-fluid">
           <div className="row align-items-center">
             <div className="col-xl-2 col-lg-6 col-md-6 col-7 col-sm-5 d-flex align-items-center pos-relative">
               <div className="logo">
                 <a href="_blank"><img src="./assets/logo_shop.png" alt="" /></a>
               </div>
-
+              
               <div className="category-menu">
+                
                 <h4>Category</h4>
                 <ul>
                   <li><a href="_blank"><i className="fas fa-shopping-cart"></i> Table lamp</a></li>
@@ -31,6 +49,9 @@ export default function Headers(props) {
               <div className="main-menu text-center">
                 <nav id="mobile-menu" style={{ display: "block" }}>
                   <ul>
+                    <li>
+                      <div class="clock"></div>
+                    </li>
                     <li>
                       <a href="./index.html">Home</a>
                     </li>
