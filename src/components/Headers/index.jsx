@@ -58,22 +58,20 @@ export default function Headers(props) {
             <div className="col-xl-2 col-lg-6 col-md-6 col-5 col-sm-7 pl-0">
               <div className="header-right f-right">
                 <ul>
-                <li>
-                    <div className="total-price">
-                      <span className="f-left">Total: </span>
-                      <span className="f-right">$ {props.totalCart}</span>
-                    </div>
-                  </li>
+                  <div className="total-price">
+                    <span className="f-left">Total: </span>
+                    <span className="f-right">$ {props.totalCart}</span>
+                  </div>
                   <li className="search-btn">
                     <a className="search-btn nav-search search-trigger" href="_blank"><i className="fas fa-search"></i></a>
                   </li>
-                  
+
                   <li className="login-btn"><a href="_blank"><i className="far fa-user"></i></a></li>
                   <li className="d-shop-cart"><a href="_blank"><i className="fas fa-shopping-cart"></i> <span className="cart-count">{props.totalItem}</span></a>
                     <ul className="minicart" id="minicart">
                       {/* CartItem start */}
                       {props.data.map(ele => <CartIem {...ele} />)}
-                      
+
                       {/* CartItem End */}
                       <li>
                         <div className="checkout-link">
@@ -81,7 +79,7 @@ export default function Headers(props) {
                           <a className="red-color" href="_blank">Checkout</a>
                         </div>
                       </li>
-                      
+
                     </ul>
                   </li>
                 </ul>

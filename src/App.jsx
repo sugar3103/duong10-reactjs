@@ -33,8 +33,8 @@ function App() {
     setTotalItem(totalItem + 1)
   };
   dataItemCart.data = itemInCart
-  console.log(totalCart)
-  console.log(totalItem)
+  console.log("Total Cart : ", totalCart)
+  console.log("Total Item : ", totalItem)
 
   const lowToHigh = (e) => {
     e.preventDefault();
@@ -62,7 +62,8 @@ function App() {
     data.data = sortedList
     setdataGlobal(data)
   };
-  const filterSale = () => {
+  const filterSale = (e) => {
+    e.preventDefault();
     const sortedList = dataGlobal.data.filter(e => e.promotion_percent >= 20);
     data.data = sortedList
     setdataGlobal(data)
