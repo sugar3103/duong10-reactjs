@@ -8,7 +8,7 @@ export default function ProductItem(props) {
     return (
         <>
          {/* <!-- ProductItem --> */ }
-        <div key={props.product_id} className="col-xl-4 col-lg-6 col-md-6" >
+        <div key={props.index} className="col-xl-4 col-lg-6 col-md-6" >
             <div  className="product-wrapper mb-50">
                 <div className="product-img mb-25">
                     <a href="_blank">

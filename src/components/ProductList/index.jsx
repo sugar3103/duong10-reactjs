@@ -1,18 +1,37 @@
 import React from "react";
 import ProductItem from "../ProductItem";
+import SearchItem from "../SearchItem"
 
 
 
 export default function ProductList(props) {
-    
+    function clock() {// We create a new Date object and assign it to a variable called "time".
+        var time = new Date(),
+        // Access the "getHours" method on the Date object with the dot accessor.
+        hours = time.getHours(),
+        // Access the "getMinutes" method with the dot accessor.
+        minutes = time.getMinutes(),
+        seconds = time.getSeconds();
+        document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+
+        function harold(standIn) {
+            if (standIn < 10) {
+                standIn = '0' + standIn
+            }
+            return standIn;
+        }
+    }
+    setInterval(clock, 1000);
     return (
         <>
-            <main>
+            <main >
                 <section className="shop-area pt-150 pb-100">
                     <div className="container">
                         <div className="row">
                             <div className="col-xl-9 col-lg-8">
                                 {/* <!-- tab filter --> */}
+
+                                <div class="clock"></div>
 
                                 <div className="row mb-10">
                                     <div className="col-xl-5 col-lg-6 col-md-6">
@@ -27,10 +46,10 @@ export default function ProductList(props) {
                                         <div className="row">
 
                                             {/* <!-- ProductItem --> */}
-                                            {props.data.map(ele=>
-                                                <ProductItem {...ele} clickFromItem={props.clickFromItem}/>
-                                                )}
-                                            
+                                            {props.data.map(ele =>
+                                                <ProductItem {...ele} clickFromItem={props.clickFromItem} />
+                                            )}
+
                                         </div>
                                     </div>
                                 </div>
@@ -38,13 +57,9 @@ export default function ProductList(props) {
                             {/* <!--SideBar --> */}
                             <div className="col-xl-3 col-lg-4">
                                 <div className="sidebar-shop">
-                                    <div className="shop-widget">
-                                        <h3 className="shop-title">Search by</h3>
-                                        <form action="#" className="shop-search">
-                                            <input type="text" placeholder="Your keyword...." />
-                                            <button><i className="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
+                                    {/* search the item start */}
+                                    <SearchItem />
+                                    {/* search the item end */}
                                     {/* <!--
                             <div className="shop-widget">
                                                                                                         <h3 className="shop-title">Filter selection</h3>
@@ -61,7 +76,7 @@ export default function ProductList(props) {
                                             <li><a href="_blank" onClick={props.zToA}>Name: Z-A</a></li>
                                             <li><a href="_blank" onClick={props.highToLow}>Price: High to Low</a></li>
                                             <li><a href="_blank" onClick={props.lowToHigh}>Price: Low to High</a></li>
-                                            <li><a href="_blank">Product: Top Sales</a></li>
+                                            <li><a href="_blank" onClick={props.filterSale}>Product: Top Sales > 20%</a></li>
                                         </ul>
                                     </div>
 

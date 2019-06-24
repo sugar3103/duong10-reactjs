@@ -1,6 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function RegisterForm() {
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(username, email, password)
+    }
+    const onUsernameChange = (e)=> {
+        setUsername(e.target.value)        
+    }
+    const onEmailChange = (e) => {
+        setEmail(e.target.value)
+    }
+    const onPasswordChange = (e) => {
+        setPassword(e.target.value)
+    }
     return (
         <main>
             {/* breadcrumb-area-start */}
@@ -27,13 +43,13 @@ export default function RegisterForm() {
                         <div className="col-lg-8 offset-lg-2">
                             <div className="basic-login">
                                 <h3 className="text-center mb-60">Signup From Here</h3>
-                                <form action="#">
+                                <form onSubmit={onSubmit} action="#">
                                     <label htmlFor="name">Username <span>**</span></label>
-                                    <input id="name" type="text" placeholder="Enter Username or Email address..." />
+                                    <input onChange={onUsernameChange} id="name" type="text" placeholder="Enter Username or Email address..." />
                                     <label htmlFor="email-id">Email Address <span>**</span></label>
-                                    <input id="email-id" type="text" placeholder="Enter Username or Email address..." />
+                                    <input onChange={onEmailChange} id="email-id" type="text" placeholder="Enter Username or Email address..." />
                                     <label htmlFor="pass">Password <span>**</span></label>
-                                    <input id="pass" type="password" placeholder="Enter password..." />
+                                    <input onChange={onPasswordChange} id="pass" type="password" placeholder="Enter password..." />
                                     <div className="mt-10" />
                                     <button className="btn theme-btn-2 w-100">Register Now</button>
                                     <div className="or-divide"><span>or</span></div>
