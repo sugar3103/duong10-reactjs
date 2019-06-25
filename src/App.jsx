@@ -28,7 +28,7 @@ function App() {
     setImg_url(img_url)
     setPrice(price)
     setfinal_price(final_price)
-    itemInCart.push({"name": name, "img_url": img_url, "final_price" : final_price});
+    itemInCart.push({"name": name, "img_url": img_url, "price": price, "final_price" : final_price});
     setTotalCart(itemInCart.map(ele => ele.final_price).reduce((a,b) => a+b))
     setTotalItem(totalItem + 1)
   };

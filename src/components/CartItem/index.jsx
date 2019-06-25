@@ -17,9 +17,10 @@ export default function CartItem(props) {
                         <a href="_blank">{props.name}</a>
                     </h3>
                     <div className="cart-price">
-                        <span className="new">{props.final_price}</span>
+                        <span className="new">{props.final_price.toLocaleString()}</span>
+                        <span>  </span>
                         <span>
-                            <del>{props.price}</del>
+                            <del>{props.price.toLocaleString()}</del>
                         </span>
                     </div>
                 </div>
