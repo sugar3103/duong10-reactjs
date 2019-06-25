@@ -9,7 +9,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build && jscambler",
+        "build": "react-scripts build && jscrambler",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
