@@ -5,6 +5,7 @@ import SearchItem from "../SearchItem"
 
 
 export default function ProductList(props) {
+    
     return (
         <>
             <main >

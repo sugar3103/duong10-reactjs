@@ -7,8 +7,8 @@ import LoginForm from "./components/LoginForm";
 import ItemDetail from "./components/ItemDetail";
 import TodoList from "./components/TodoList";
 import Layout from "./components/Layout";
-import result from "./data.json"
-
+import result from "./data.json";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 function App() {
@@ -28,8 +28,8 @@ function App() {
     setImg_url(img_url)
     setPrice(price)
     setfinal_price(final_price)
-    itemInCart.push({"name": name, "img_url": img_url, "price": price, "final_price" : final_price});
-    setTotalCart(itemInCart.map(ele => ele.final_price).reduce((a,b) => a+b))
+    itemInCart.push({ "name": name, "img_url": img_url, "price": price, "final_price": final_price });
+    setTotalCart(itemInCart.map(ele => ele.final_price).reduce((a, b) => a + b))
     setTotalItem(totalItem + 1)
   };
   dataItemCart.data = itemInCart
@@ -38,27 +38,27 @@ function App() {
 
   const lowToHigh = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a,b)=> a.final_price - b.final_price);
+    const sortedList = dataGlobal.data.sort((a, b) => a.final_price - b.final_price);
     data.data = sortedList
     setdataGlobal(data)
   };
   const highToLow = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a,b)=> b.final_price - a.final_price);
+    const sortedList = dataGlobal.data.sort((a, b) => b.final_price - a.final_price);
     data.data = sortedList
     setdataGlobal(data)
   };
   const aToZ = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a,b)=> 
-    a["name"].localeCompare(b["name"], "vi", { sensitivity: "base" }));
+    const sortedList = dataGlobal.data.sort((a, b) =>
+      a["name"].localeCompare(b["name"], "vi", { sensitivity: "base" }));
     data.data = sortedList
     setdataGlobal(data)
   };
   const zToA = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a,b)=> 
-    b["name"].localeCompare(a["name"], "vi", { sensitivity: "base" }));
+    const sortedList = dataGlobal.data.sort((a, b) =>
+      b["name"].localeCompare(a["name"], "vi", { sensitivity: "base" }));
     data.data = sortedList
     setdataGlobal(data)
   };
@@ -72,39 +72,49 @@ function App() {
 
 
   return (
-    <Layout {...dataItemCart} totalCart={totalCart} totalItem={totalItem}>
-      {/* <!-- header start --> */}
+    
+      <Layout {...dataItemCart} totalCart={totalCart} totalItem={totalItem}>
+        {/* <!-- header start --> */}
 
-      {/* <!-- header end --> */}
+        {/* <!-- header end --> */}
 
-      {/* <!-- ProductList start --> */}
-      <ProductList {...dataGlobal} clickFromItem={onClickBtn}
-        aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale}/>
-      {/* <ItemDetail /> */}
-      {/* <LoginForm /> */}
-      {/* <RegisterForm /> */}
-      {/* <TodoList /> */}
-      {/* <!-- ProductList End --> */}
+        <Router>
+          <Route path="/" exact render={() => ( <ProductList {...dataGlobal} clickFromItem={onClickBtn}
+                aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />
+              )}
+          />
+          <Route path="/details" component={ItemDetail} />
+          <Route path="/register" component={RegisterForm} />
+          <Route path="/login" component={LoginForm} />
+        </Router>
 
-      {/* <!-- footer start --> */}
-      {/* <!-- footer end --> */}
+        {/* <!-- ProductList start --> */}
+        {/*  */}
+        {/* <ItemDetail /> */}
+        {/* <LoginForm /> */}
+        {/* <RegisterForm /> */}
+        {/* <TodoList /> */}
+        {/* <!-- ProductList End --> */}
 
-      {/* <!-- Fullscreen search --> */}
-      <div className="search-wrap">
-        <div className="search-inner">
-          <i className="fas fa-times search-close" id="search-close"></i>
-          <div className="search-cell">
-            <form method="get">
-              <div className="search-field-holder">
-                <input type="search" className="main-search-input" placeholder="Search Entire Store..." />
-              </div>
-            </form>
+        {/* <!-- footer start --> */}
+        {/* <!-- footer end --> */}
+
+        {/* <!-- Fullscreen search --> */}
+        <div className="search-wrap">
+          <div className="search-inner">
+            <i className="fas fa-times search-close" id="search-close"></i>
+            <div className="search-cell">
+              <form method="get">
+                <div className="search-field-holder">
+                  <input type="search" className="main-search-input" placeholder="Search Entire Store..." />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-      {/* <!-- end fullscreen search --> */}
+        {/* <!-- end fullscreen search --> */}
 
-    </Layout>
+      </Layout>
   );
 }
 

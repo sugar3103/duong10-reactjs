@@ -1,5 +1,6 @@
 import React from "react";
 import CartIem from "../CartItem";
+import RegisterForm from ".."
 
 export default function Headers(props) {
   function clock() {// We create a new Date object and assign it to a variable called "time".
