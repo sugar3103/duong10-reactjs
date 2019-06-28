@@ -1,38 +1,45 @@
 import React from "react";
 import CartIem from "../CartItem";
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import ProductList from "../ProductList";
+import RegisterForm from "../RegisterForm";
+import LoginForm from "../LoginForm";
+import ItemDetail from "../ItemDetail";
 
 export default function Headers(props) {
   function clock() {// We create a new Date object and assign it to a variable called "time".
-        var time = new Date(),
-        // Access the "getHours" method on the Date object with the dot accessor.
-        hours = time.getHours(),
-        // Access the "getMinutes" method with the dot accessor.
-        minutes = time.getMinutes(),
-        seconds = time.getSeconds();
-        document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+    var time = new Date(),
+      // Access the "getHours" method on the Date object with the dot accessor.
+      hours = time.getHours(),
+      // Access the "getMinutes" method with the dot accessor.
+      minutes = time.getMinutes(),
+      seconds = time.getSeconds();
+    document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
 
-        function harold(standIn) {
-            if (standIn < 10) {
-                standIn = '0' + standIn
-            }
-            return standIn;
-        }
+    function harold(standIn) {
+      if (standIn < 10) {
+        standIn = '0' + standIn
+      }
+      return standIn;
     }
-    setInterval(clock, 500);
+  }
+  setInterval(clock, 500);
+
 
   return (
+
     <header>
       <div id="header-sticky" className="header-area box-90 sticky-header">
-        
         <div className="container-fluid">
           <div className="row align-items-center">
             <div className="col-xl-2 col-lg-6 col-md-6 col-7 col-sm-5 d-flex align-items-center pos-relative">
               <div className="logo">
-                <a href="_blank"><img src="./assets/logo_shop.png" alt="" /></a>
+                <Router>
+                  <Link to="/"><img src="./assets/logo_duong.png" alt="" /></Link>
+                </Router>
               </div>
-              
               <div className="category-menu">
-                
+
                 <h4>Category</h4>
                 <ul>
                   <li><a href="_blank"><i className="fas fa-shopping-cart"></i> Table lamp</a></li>
@@ -44,38 +51,46 @@ export default function Headers(props) {
                   <li><a href="_blank"><i className="fas fa-shopping-cart"></i> Trend</a></li>
                 </ul>
               </div>
+
             </div>
+
             <div className="col-xl-8 col-lg-6 col-md-8 col-8 d-none d-xl-block">
               <div className="main-menu text-center">
+
                 <nav id="mobile-menu" style={{ display: "block" }}>
-                  <ul>
-                    <li>
-                      <div class="clock"></div>
-                    </li>
-                    <li>
-                      <a href="./index.html">Home</a>
-                    </li>
-                    <li>
-                      <a href="_blank">Pages</a>
-                      <ul className="submenu">
-                        <li>
-                          <a href="./detail.html">Product Detail</a>
-                        </li>
-                        <li>
-                          <a href="./login.html">login</a>
-                        </li>
-                        <li>
-                          <a href="./register.html">Register</a>
-                        </li>
-                        <li>
-                          <a href="./cart.html">Shoping Cart</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <div className="clock"></div>
+
+                  <Router>
+                    <ul>
+                      <li>
+                        <Link to="/">Home</Link>
+                      </li>
+                      <li>
+                        <a href="_blank">Pages</a>
+                        <ul className="submenu">
+                          <li>
+                            {/* <link to = {`${props.url}/details`}>Product Details</link> */}
+                          </li>
+                          <li>
+                            <Link to="/Login">Login</Link>
+                          </li>
+                          <li>
+                            <Link to="/register">Register</Link>
+                          </li>
+                          <li>
+                            <Link to="/details">Detail</Link>
+                          </li>
+                          <li>
+                            <Link to="/shoppingCart">Shopping Cart</Link>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </Router>
                 </nav>
               </div>
             </div>
+
             <div className="col-xl-2 col-lg-6 col-md-6 col-5 col-sm-7 pl-0">
               <div className="header-right f-right">
                 <ul>
@@ -91,7 +106,7 @@ export default function Headers(props) {
                   <li className="d-shop-cart"><a href="_blank"><i className="fas fa-shopping-cart"></i> <span className="cart-count">{props.totalItem}</span></a>
                     <ul className="minicart" id="minicart">
                       {/* CartItem start */}
-                      {props.data.map(ele => <CartIem {...ele} />)}
+                      {props.dataInCart.map(ele => <CartIem {...ele} />)}
 
                       {/* CartItem End */}
                       <li>
@@ -100,7 +115,6 @@ export default function Headers(props) {
                           <a className="red-color" href="_blank">Checkout</a>
                         </div>
                       </li>
-
                     </ul>
                   </li>
                 </ul>

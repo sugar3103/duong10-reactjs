@@ -885,8 +885,10 @@ ul.minicart .cart-price span {
 
 .clock {
     font-weight: bold;
-    font-size: 50px;
+    font-size: 20px;
     color: red;
+    margin-bottom: -30px;
+    margin-left: 25px;
 }
 
 .toDoList p {

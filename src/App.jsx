@@ -7,79 +7,94 @@ import LoginForm from "./components/LoginForm";
 import ItemDetail from "./components/ItemDetail";
 import TodoList from "./components/TodoList";
 import Layout from "./components/Layout";
-import result from "./data.json"
-
+import result from "./data.json";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 function App() {
-  const data = {};
-  const dataItemCart = {};
-
-  const [name, setName] = useState("");
-  const [img_url, setImg_url] = useState("");
-  const [price, setPrice] = useState("");
-  const [final_price, setfinal_price] = useState("");
   const [itemInCart, setItemInCart] = useState([]);
-  const [dataGlobal, setdataGlobal] = useState(result);
+  const [dataGlobal, setdataGlobal] = useState(result.data);
   const [totalCart, setTotalCart] = useState(0);
   const [totalItem, setTotalItem] = useState(0);
-  const onClickBtn = (name, img_url, price, final_price) => {
-    setName(name)
-    setImg_url(img_url)
-    setPrice(price)
-    setfinal_price(final_price)
-    itemInCart.push({"name": name, "img_url": img_url, "price": price, "final_price" : final_price});
-    setTotalCart(itemInCart.map(ele => ele.final_price).reduce((a,b) => a+b))
+  const onClickBtn = (props) => {
+    // console.log(itemInCart.length)
+    // itemInCart.push([{...props, so_luong: 1}])
+    // first times => thêm mới vào
+    if(itemInCart.length === 0){
+      itemInCart.push({...props, so_luong: 0 })
+    }
+
+    //Tìm các giá trị trùng nhau trong giỏ hàng
+    const existProductInCart = itemInCart.find(product => product.product_id === props.product_id)
+    console.log(existProductInCart)
+    // Nếu trả ra true nghĩa là có giá trị trùng
+    if (existProductInCart) {
+      const newCart = itemInCart.map(product => {
+        if (product.product_id === props.product_id) {
+          return {...product, so_luong: product.so_luong + 1}
+        }
+        return product
+      })
+      setItemInCart(newCart)
+      console.log(newCart)
+      
+    }
+    if(!existProductInCart){
+      itemInCart.push({...props, so_luong: 1 })
+    }
+
+    setTotalCart(itemInCart.map(ele => ele).reduce((a, b) => a.final_price*a.so_luong + b.final_price*b.so_luong))
     setTotalItem(totalItem + 1)
   };
-  dataItemCart.data = itemInCart
-  console.log("Total Cart : ", totalCart)
-  console.log("Total Item : ", totalItem)
 
   const lowToHigh = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a,b)=> a.final_price - b.final_price);
-    data.data = sortedList
-    setdataGlobal(data)
+    const sortedList = dataGlobal.sort((a, b) => a.final_price - b.final_price);
+    setdataGlobal(sortedList)
   };
   const highToLow = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a,b)=> b.final_price - a.final_price);
-    data.data = sortedList
-    setdataGlobal(data)
+    const sortedList = dataGlobal.sort((a, b) => b.final_price - a.final_price);
+    setdataGlobal(sortedList)
   };
   const aToZ = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a,b)=> 
-    a["name"].localeCompare(b["name"], "vi", { sensitivity: "base" }));
-    data.data = sortedList
-    setdataGlobal(data)
+    const sortedList = dataGlobal.sort((a, b) =>
+      a["name"].localeCompare(b["name"], "vi", { sensitivity: "base" }));
+    setdataGlobal(sortedList)
   };
   const zToA = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a,b)=> 
-    b["name"].localeCompare(a["name"], "vi", { sensitivity: "base" }));
-    data.data = sortedList
-    setdataGlobal(data)
+    const sortedList = dataGlobal.sort((a, b) =>
+      b["name"].localeCompare(a["name"], "vi", { sensitivity: "base" }));
+    setdataGlobal(sortedList)
   };
   const filterSale = (e) => {
     e.preventDefault();
     const sortedList = dataGlobal.data.filter(e => e.promotion_percent >= 20);
-    data.data = sortedList
-    setdataGlobal(data)
+    setdataGlobal(sortedList)
   };
 
 
 
   return (
-    <Layout {...dataItemCart} totalCart={totalCart} totalItem={totalItem}>
+    <Layout dataInCart={itemInCart} totalCart={totalCart} totalItem={totalItem}>
       {/* <!-- header start --> */}
 
       {/* <!-- header end --> */}
 
+      <Router>
+        <Route path="/" exact render={() => (<ProductList data={dataGlobal} clickFromItem={onClickBtn}
+          aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />
+        )}
+        />
+        <Route path="/details" component={ItemDetail} />
+        <Route path="/register" component={RegisterForm} />
+        <Route path="/login" component={LoginForm} />
+      </Router>
+
       {/* <!-- ProductList start --> */}
-      <ProductList {...dataGlobal} clickFromItem={onClickBtn}
-        aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale}/>
+      {/*  */}
       {/* <ItemDetail /> */}
       {/* <LoginForm /> */}
       {/* <RegisterForm /> */}
