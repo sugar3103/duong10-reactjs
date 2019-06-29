@@ -27,10 +27,10 @@ export default function ProductList(props) {
                                 <div className="tab-content" id="myTabContent">
                                     <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div className="row">
-
+                                        
                                             {/* <!-- ProductItem --> */}
                                             {props.data.map(ele =>
-                                                <ProductItem {...ele} clickFromItem={props.clickFromItem} />
+                                                <ProductItem {...ele} clickFromItem={props.clickFromItem}/>
                                             )}
 
                                         </div>

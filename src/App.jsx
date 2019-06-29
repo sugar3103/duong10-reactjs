@@ -4,89 +4,106 @@ import './App.css';
 import ProductList from "./components/ProductList";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
-import ItemDetail from "./components/ItemDetail";
+import ProductDetail from "./components/ProductDetail";
 import TodoList from "./components/TodoList";
+import Page404 from "./components/Page404";
 import Layout from "./components/Layout";
 import result from "./data.json";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 function App() {
   const data = {};
-  const dataItemCart = {};
 
-  const [name, setName] = useState("");
-  const [img_url, setImg_url] = useState("");
-  const [price, setPrice] = useState("");
-  const [final_price, setfinal_price] = useState("");
   const [itemInCart, setItemInCart] = useState([]);
-  const [dataGlobal, setdataGlobal] = useState(result);
+  const [dataGlobal, setdataGlobal] = useState(result.data);
+  const [detailData, setDetailData] = useState([])
   const [totalCart, setTotalCart] = useState(0);
   const [totalItem, setTotalItem] = useState(0);
-  const onClickBtn = (name, img_url, price, final_price) => {
-    setName(name)
-    setImg_url(img_url)
-    setPrice(price)
-    setfinal_price(final_price)
-    itemInCart.push({ "name": name, "img_url": img_url, "price": price, "final_price": final_price });
+  const [selectedItem, setSelectedItem] = useState()
+
+  const onClickBtn = (props) => {
+    if (itemInCart.length === 0) {
+      itemInCart.push({ ...props, so_luong: 1 });
+    }
+    const existProductInCart = itemInCart.find(product => product.product_id === props.product_id)
+    // Bị trùng sản phẩm trong giỏ hàng => cập nhật số lương
+    if (existProductInCart) {
+      const newCart = itemInCart.map(product => {
+        if (product.product_id === props.product_id) {
+          return {
+            ...product,
+            so_luong: product.so_luong + 1
+          }
+        }
+        return product
+      })
+
+      setItemInCart(newCart)
+    } else {
+      // chưa có sản phẩm này trong giỏ hàng => thêm mới vào
+      itemInCart.push({ ...props, so_luong: 1 })
+    }
+
     setTotalCart(itemInCart.map(ele => ele.final_price).reduce((a, b) => a + b))
     setTotalItem(totalItem + 1)
   };
-  dataItemCart.data = itemInCart
+  const findSelectedItem = (productId) => {
+    const item = result.data.find(item => item.product_id === parseInt(productId, 10))
+    setSelectedItem(item)
+  }
+
+
   console.log("Total Cart : ", totalCart)
   console.log("Total Item : ", totalItem)
 
   const lowToHigh = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a, b) => a.final_price - b.final_price);
-    data.data = sortedList
-    setdataGlobal(data)
+    const sortedList = dataGlobal.sort((a, b) => a.final_price - b.final_price);
+    setdataGlobal([...sortedList])
   };
   const highToLow = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a, b) => b.final_price - a.final_price);
-    data.data = sortedList
-    setdataGlobal(data)
+    const sortedList = dataGlobal.sort((a, b) => b.final_price - a.final_price);
+    setdataGlobal([...sortedList])
   };
   const aToZ = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a, b) =>
+    const sortedList = dataGlobal.sort((a, b) =>
       a["name"].localeCompare(b["name"], "vi", { sensitivity: "base" }));
-    data.data = sortedList
-    setdataGlobal(data)
+    setdataGlobal([...sortedList])
   };
   const zToA = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.sort((a, b) =>
+    const sortedList = dataGlobal.sort((a, b) =>
       b["name"].localeCompare(a["name"], "vi", { sensitivity: "base" }));
-    data.data = sortedList
-    setdataGlobal(data)
+    setdataGlobal([...sortedList])
   };
   const filterSale = (e) => {
     e.preventDefault();
-    const sortedList = dataGlobal.data.filter(e => e.promotion_percent >= 20);
-    data.data = sortedList
-    setdataGlobal(data)
+    const sortedList = dataGlobal.filter(e => e.promotion_percent >= 20);
+    setdataGlobal([...sortedList])
   };
 
-
-
   return (
-    
-      <Layout {...dataItemCart} totalCart={totalCart} totalItem={totalItem}>
+    <Router>
+      <Layout data={itemInCart} totalCart={totalCart} totalItem={totalItem}>
         {/* <!-- header start --> */}
 
         {/* <!-- header end --> */}
 
-        <Router>
-          <Route path="/" exact render={() => ( <ProductList {...dataGlobal} clickFromItem={onClickBtn}
-                aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />
-              )}
+        <Switch>
+          <Route path="/" exact render={() => (<ProductList data={dataGlobal} clickFromItem={onClickBtn}
+            aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />)}
           />
-          <Route path="/details" component={ItemDetail} />
+          <Route path="/product-detail/:id" render={(propsOfRouter) => (<ProductDetail {...propsOfRouter}
+            selectedItem={selectedItem} findSelectedItem={findSelectedItem} />)}
+          />
           <Route path="/register" component={RegisterForm} />
           <Route path="/login" component={LoginForm} />
-        </Router>
+          <Route component={Page404} />
+        </Switch>
 
         {/* <!-- ProductList start --> */}
         {/*  */}
@@ -115,6 +132,7 @@ function App() {
         {/* <!-- end fullscreen search --> */}
 
       </Layout>
+    </Router>
   );
 }
 

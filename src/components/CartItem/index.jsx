@@ -18,10 +18,11 @@ export default function CartItem(props) {
                     </h3>
                     <div className="cart-price">
                         <span className="new">{props.final_price.toLocaleString()}</span>
-                        <span>  </span>
+                        <span> </span>
                         <span>
                             <del>{props.price.toLocaleString()}</del>
                         </span>
+                        <span> X </span> <span><strong>{props.so_luong}</strong></span>
                     </div>
                 </div>
                 <div className="del-icon">
