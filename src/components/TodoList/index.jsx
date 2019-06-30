@@ -2,70 +2,6 @@ import React from 'react';
 import SearchItem from "../SearchItem"
 
 export default function TodoList(props) {
-    ```const onRemoveProduct = (props) => {
-        const itemCartDontHaveProps = itemInCart.filter(product => product.product_id !== props.product_id)
-      };```
-      ```export default function Headers(props) { // props : data, totalCart, totalId ....
-        const [hours, setHours] = useState(0)
-        const [minutes, setMinutes] = useState(0)
-        const [seconds, setSeconds] = useState(0)
-    
-      const setTotalCart = props.data.reduce((prev, cur) => prev + cur.price, 0)
-    
-      useEffect(() => {
-          const timer = setInterval(clock, 500);
-    
-          return clearInterval(timer) // componentWillUnMount
-      }, []) // componentDidMount => once
-    
-      useEffect(() => {
-          // run
-      }, [props.data])
-    
-      function harold(standIn) {
-        if (standIn < 10) {
-                standIn = '0' + standIn
-            }
-            return standIn;
-        }
-    
-      function clock() {
-            var time = new Date();
-            const h = harold(time.getHours())
-            const m = harold(time.getMinutes())
-            const s = harold(time.getSeconds())
-            setHours(h)
-             setMinutes(m)
-             setSeconds(s)
-        }```
-        ```const onClickBtn = (props) => {
-
-            // first times => thêm mới vào
-            if (itemInCart.length === 0) {
-              return setItemInCart([{ ...props, so_luong: 1 }])
-            }
-        
-            const existProductInCart = itemInCart.find(product => product.product_id === props.product_id)
-        
-             // Bị trùng sản phẩm trong giỏ hàng => cập nhật số lương
-            if(existProductInCart) {
-              const newCart = itemInCart.map(product => {
-                 if(product.product_id === props.product_id) {
-                   return {
-                     ...product,
-                     so_luong: product.so_luong + 1
-                   }
-                 }
-                 return product
-              })
-        
-              setItemInCart(newCart)
-            } else {
-              // chưa có sản phẩm này trong giỏ hàng => thêm mới vào
-              return setItemInCart([{ ...props, so_luong: 1 }])
-            }
-        
-          };```
     return (
         <main>
             <section className="shop-area pt-150 pb-100">
@@ -99,7 +35,6 @@ export default function TodoList(props) {
                                 <p>Lab: Tạo một trang chi tiết sản phẩm <i class="fas fa-check green"></i></p>
                             </div>
                         </div>
-                        
                         {/* <!--SideBar --> */}
                         <div className="col-xl-3 col-lg-4">
                             <div className="sidebar-shop">
