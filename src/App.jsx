@@ -19,17 +19,19 @@ const RegisterForm = React.lazy(() => import("./components/RegisterForm"));
 const LoginForm = React.lazy(() => import("./components/LoginForm"));
 const ProductDetail = React.lazy(() => import("./components/ProductDetail"));
 function App() {
-  initFirebase()
-  try{
-    firebase.auth().onAuthStateChanged((user)=> {
-      // if(user === ""){
-      //   <Link to={"./login"}></Link>
-      // }else{
-      //   <Link to={"./register"}></Link>
-      // }
+  
+  try {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user === null) {
+        // <Link to={"./login"}></Link>
+        console.log("the user is NULL")
+      } else {
+        // <Link to={"./register"}></Link>;
+        console.log(user)
+      }
       console.log(user)
     })
-  }catch(error){
+  } catch (error) {
     console.log(error)
   }
 
@@ -113,6 +115,7 @@ function App() {
         {/* <!-- header end --> */}
         <React.Suspense fallback={<Loading />}>
           <Switch>
+
             <Route path="/" exact render={() => (<ProductList data={dataGlobal} clickFromItem={onClickBtn}
               aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />)}
             />

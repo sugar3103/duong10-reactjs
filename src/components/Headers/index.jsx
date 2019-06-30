@@ -1,30 +1,36 @@
 import React from "react";
 import CartIem from "../CartItem";
 import { Link } from "react-router-dom";
+import * as firebase from "firebase";
 
 
 
 export default function Headers(props) {
-  // function clock() {// We create a new Date object and assign it to a variable called "time".
-  //       var time = new Date(),
-  //       // Access the "getHours" method on the Date object with the dot accessor.
-  //       hours = time.getHours(),
-  //       // Access the "getMinutes" method with the dot accessor.
-  //       minutes = time.getMinutes(),
-  //       seconds = time.getSeconds();
-  //       document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+  function clock() {// We create a new Date object and assign it to a variable called "time".
+    var time = new Date(),
+      // Access the "getHours" method on the Date object with the dot accessor.
+      hours = time.getHours(),
+      // Access the "getMinutes" method with the dot accessor.
+      minutes = time.getMinutes(),
+      seconds = time.getSeconds();
+    document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
 
-  //       function harold(standIn) {
-  //           if (standIn < 10) {
-  //               standIn = '0' + standIn
-  //           }
-  //           return standIn;
-  //       }
-  //   }
-  //   setInterval(clock, 500);
-
-
-  // }
+    function harold(standIn) {
+      if (standIn < 10) {
+        standIn = '0' + standIn
+      }
+      return standIn;
+    }
+  }
+  setInterval(clock, 500);
+  function firebaseSignOut(){
+    try{
+      firebase.auth().signOut()
+      console.log("firebase sign out successed")
+    }catch(error){
+      console.log(error)
+    }
+  }
   return (
     <header>
       <div id="header-sticky" className="header-area box-90 sticky-header">
@@ -57,27 +63,30 @@ export default function Headers(props) {
                     <li>
                       <div className="clock"></div>
                     </li>
-                      <li>
-                        <Link to={`/`}>Home</Link>
-                      </li>
-                      <li>
-                        <a href="_blank">Pages</a>
-                        <ul className="submenu">
-                          <li>
-                            <Link to={`/details`}>Product Detail</Link>
-                          </li>
-                          <li>
+                    <li>
+                      <Link to={`/`}>Home</Link>
+                    </li>
+                    <li>
+                      <a href="_blank">Pages</a>
+                      <ul className="submenu">
+                        <li>
+                          <Link to={`/details`}>Product Detail</Link>
+                        </li>
+                        <li>
                           <Link to={`/login`}>Login</Link>
-                          </li>
-                          <li>
+                        </li>
+                        <li>
                           <Link to={`/register`}>Register</Link>
-                          </li>
-                          <li>
+                        </li>
+                        <li>
                           <Link to={`/cartItem`}>Carts</Link>
-                          </li>
-                        </ul>
-                      </li>
-                      {/* <Route path="/details" component={ItemDetail} />
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <button type="button" className="btn btn-danger" onClick={firebaseSignOut}>Sign out</button>
+                    </li>
+                    {/* <Route path="/details" component={ItemDetail} />
                       <Route path="/register" component={RegisterForm} />
                       <Route path="/login" component={LoginForm} /> */}
                   </ul>
