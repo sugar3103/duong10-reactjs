@@ -1,24 +1,42 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ProductList from "./components/ProductList";
-import RegisterForm from "./components/RegisterForm";
-import LoginForm from "./components/LoginForm";
-import ProductDetail from "./components/ProductDetail";
+import * as firebase from "firebase";
+// import ProductList from "./components/ProductList";
+// import RegisterForm from "./components/RegisterForm";
+// import LoginForm from "./components/LoginForm";
+// import ProductDetail from "./components/ProductDetail";
 import TodoList from "./components/TodoList";
 import Page404 from "./components/Page404";
+import Loading from "./components/Loading";
 import Layout from "./components/Layout";
 import result from "./data.json";
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import initFirebase from './firebaseConfig';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-
+const ProductList = React.lazy(() => import("./components/ProductList"));
+const RegisterForm = React.lazy(() => import("./components/RegisterForm"));
+const LoginForm = React.lazy(() => import("./components/LoginForm"));
+const ProductDetail = React.lazy(() => import("./components/ProductDetail"));
 function App() {
+  initFirebase()
+  try{
+    firebase.auth().onAuthStateChanged((user)=> {
+      // if(user === ""){
+      //   <Link to={"./login"}></Link>
+      // }else{
+      //   <Link to={"./register"}></Link>
+      // }
+      console.log(user)
+    })
+  }catch(error){
+    console.log(error)
+  }
+
   const data = {};
 
   const [itemInCart, setItemInCart] = useState([]);
   const [dataGlobal, setdataGlobal] = useState(result.data);
-  const [detailData, setDetailData] = useState([])
   const [totalCart, setTotalCart] = useState(0);
   const [totalItem, setTotalItem] = useState(0);
   const [selectedItem, setSelectedItem] = useState()
@@ -46,7 +64,7 @@ function App() {
       itemInCart.push({ ...props, so_luong: 1 })
     }
 
-    setTotalCart(itemInCart.map(ele => ele.final_price).reduce((a, b) => a + b))
+    setTotalCart(itemInCart.map(ele => ele.final_price * ele.so_luong).reduce((a, b) => a + b))
     setTotalItem(totalItem + 1)
   };
   const findSelectedItem = (productId) => {
@@ -88,33 +106,31 @@ function App() {
 
   return (
     <Router>
+      {/* The Layout is included Headers and Footers */}
       <Layout data={itemInCart} totalCart={totalCart} totalItem={totalItem}>
         {/* <!-- header start --> */}
 
         {/* <!-- header end --> */}
-
-        <Switch>
-          <Route path="/" exact render={() => (<ProductList data={dataGlobal} clickFromItem={onClickBtn}
-            aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />)}
-          />
-          <Route path="/product-detail/:id" render={(propsOfRouter) => (<ProductDetail {...propsOfRouter}
-            selectedItem={selectedItem} findSelectedItem={findSelectedItem} />)}
-          />
-          <Route path="/register" component={RegisterForm} />
-          <Route path="/login" component={LoginForm} />
-          <Route component={Page404} />
-        </Switch>
-
+        <React.Suspense fallback={<Loading />}>
+          <Switch>
+            <Route path="/" exact render={() => (<ProductList data={dataGlobal} clickFromItem={onClickBtn}
+              aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />)}
+            />
+            <Route path="/product-detail/:id" render={(propsOfRouter) => (<ProductDetail {...propsOfRouter}
+              selectedItem={selectedItem} findSelectedItem={findSelectedItem} />)}
+            />
+            <Route path="/register" component={RegisterForm} />
+            <Route path="/login" component={LoginForm} />
+            {/* <Route path="/loading" component={Loading} /> */}
+            <Route component={Page404} />
+          </Switch>
+        </React.Suspense>
         {/* <!-- ProductList start --> */}
         {/*  */}
         {/* <ItemDetail /> */}
         {/* <LoginForm /> */}
         {/* <RegisterForm /> */}
         {/* <TodoList /> */}
-        {/* <!-- ProductList End --> */}
-
-        {/* <!-- footer start --> */}
-        {/* <!-- footer end --> */}
 
         {/* <!-- Fullscreen search --> */}
         <div className="search-wrap">
@@ -130,7 +146,6 @@ function App() {
           </div>
         </div>
         {/* <!-- end fullscreen search --> */}
-
       </Layout>
     </Router>
   );

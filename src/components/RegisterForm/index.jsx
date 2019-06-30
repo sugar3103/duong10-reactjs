@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import firebase from "firebase";
 
 export default function RegisterForm() {
     const [username, setUsername] = useState("");
@@ -6,6 +7,11 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("");
     const onSubmit = (e) => {
         e.preventDefault();
+        try{
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+        }catch(error){
+            console.log(error.message)
+        }
         console.log(username, email, password)
     }
     const onUsernameChange = (e)=> {

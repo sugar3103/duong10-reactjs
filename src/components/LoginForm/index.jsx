@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import firebase from "firebase";
 
 export default function LoginForm() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const onSubmit = (e) => {
         e.preventDefault();
+        try {
+            firebase.auth().signInWithEmailAndPassword(email, password)
+        } catch (error) {
+            console.log(error)
+            
+        }
         console.log(email, password)
 
     }
@@ -42,15 +49,15 @@ export default function LoginForm() {
                                 <h3 className="text-center mb-60">Login From Here</h3>
                                 <form onSubmit={onSubmit}>
                                     <label htmlFor="name">Email Address <span>**</span></label>
-                                    <input id="name" 
-                                    type="text" 
-                                    placeholder="Enter Username or Email address..." 
-                                    onChange={onChangeEmail} />
+                                    <input id="name"
+                                        type="text"
+                                        placeholder="Enter Username or Email address..."
+                                        onChange={onChangeEmail} />
                                     <label htmlFor="pass">Password <span>**</span></label>
-                                    <input id="pass" 
-                                    type="password" 
-                                    placeholder="Enter password..."
-                                    onChange={onChangePassWord} />
+                                    <input id="pass"
+                                        type="password"
+                                        placeholder="Enter password..."
+                                        onChange={onChangePassWord} />
                                     <div className="login-action mb-20 fix">
                                         <span className="log-rem f-left">
                                             <input id="remember" type="checkbox" />
