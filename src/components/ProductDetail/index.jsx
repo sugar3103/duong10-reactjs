@@ -1,6 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-export default function itemDetail() {
+export default function ProductDetail(props) {
+    console.log('ProductDetail-props', props)
+
+    useEffect(() => {
+        props.findSelectedItem(props.match.params.id)
+    }, [])
+
+    useEffect(() => {
+        // scroll to top for each times when we access to detail [age]
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }, [])
+
+    if (!props.selectedItem) {
+        return <p>Loading...</p>
+    }
+
     return (
         <>
             <main>
@@ -30,17 +48,17 @@ export default function itemDetail() {
                                     <div className="tab-content" id="myTabContentpro">
                                         <div className="tab-pane fade show active" id="home" role="tabpanel">
                                             <div className="product-large-img">
-                                                <img src="img/product/pro1.jpg" alt="" />
+                                                <img src={props.selectedItem.img_url} alt="" />
                                             </div>
                                         </div>
                                         <div className="tab-pane fade" id="profile" role="tabpanel">
                                             <div className="product-large-img">
-                                                <img src="img/product/pro2.jpg" alt="" />
+                                                <img src={props.selectedItem.img_url} alt="" />
                                             </div>
                                         </div>
                                         <div className="tab-pane fade" id="profile1" role="tabpanel">
                                             <div className="product-large-img">
-                                                <img src="img/product/pro3.jpg" alt="" />
+                                                <img src={props.selectedItem.img_url} alt="" />
                                             </div>
                                         </div>
                                     </div>
@@ -63,12 +81,12 @@ export default function itemDetail() {
                                 <div className="product-details mb-30 pl-30">
                                     <div className="details-cat mb-20">
                                         <a href="_blank">decor,</a>
-                                        <a href="_blank">furniture</a>
+                                        <a href="_blank">Link to somewhere</a>
                                     </div>
-                                    <h2 className="pro-details-title mb-15">Limonda Women Winter Cloth</h2>
+                                    <h2 className="pro-details-title mb-15">{props.selectedItem.name}</h2>
                                     <div className="details-price mb-20">
-                                        <span>$119.00</span>
-                                        <span className="old-price">$246.00</span>
+                                        <span>VND {props.selectedItem.final_price.toLocaleString()}</span>
+                                        <span className="old-price">VND {props.selectedItem.price.toLocaleString()}</span>
                                     </div>
                                     <div className="product-variant">
                                         <div className="product-desc variant-item">

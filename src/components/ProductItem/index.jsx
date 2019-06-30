@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 export default function ProductItem(props) {
     const sendTextToParent = (e) =>{
@@ -19,9 +20,7 @@ export default function ProductItem(props) {
                         <a href="_blank" title="Shoppingb Cart" onClick={sendTextToParent}>
                             <i className="fas fa-shopping-cart"></i>
                         </a>
-                        <a href="_blank" title="Quick View">
-                            <i className="fas fa-search"></i>
-                        </a>
+                        <Link to={`product-detail/${props.product_id}`}><i className="fas fa-search"></i></Link>                      
 
                     </div>
                 </div>

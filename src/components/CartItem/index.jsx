@@ -22,12 +22,16 @@ export default function CartItem(props) {
                     <strong className="text-right">X {props.so_luong}</strong>
                     <div className="cart-price">
                         <span className="new">{props.final_price.toLocaleString()}</span>
-                        <span>  </span>
+                        <span> </span>
                         <span>
                             <del>{props.price.toLocaleString()}</del>
                         </span>
+<<<<<<< HEAD
                         <span>  </span>
 
+=======
+                        <span> X </span> <span><strong>{props.so_luong}</strong></span>
+>>>>>>> e4a86b051d2a7399fe0a2653602a8b935595c7e7
                     </div>
                 </div>
 
