@@ -11,8 +11,8 @@ import Page404 from "./components/Page404";
 import Loading from "./components/Loading";
 import Layout from "./components/Layout";
 import result from "./data.json";
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import initFirebase from './firebaseConfig';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import * as initFirebase from './firebaseConfig';
 
 const ProductList = React.lazy(() => import("./components/ProductList"));
 const RegisterForm = React.lazy(() => import("./components/RegisterForm"));
@@ -34,8 +34,6 @@ function App() {
   } catch (error) {
     console.log(error)
   }
-
-  const data = {};
 
   const [itemInCart, setItemInCart] = useState([]);
   const [dataGlobal, setdataGlobal] = useState(result.data);

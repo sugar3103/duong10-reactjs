@@ -96,7 +96,7 @@ export default function ProductDetail(props) {
                                         <div className="product-info-list variant-item">
                                             <ul>
                                                 <li><span>Brands:</span> Hewlett-Packard</li>
-                                                <li><span>Product Code:</span> d12</li>
+                                                <li><span>Product Code:</span>{props.selectedItem.product_id}</li>
                                                 <li><span>Reward Points:</span> 100</li>
                                                 <li><span>Stock:</span> <span className="in-stock">In Stock</span></li>
                                             </ul>

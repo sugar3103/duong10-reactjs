@@ -23,11 +23,11 @@ export default function Headers(props) {
     }
   }
   setInterval(clock, 500);
-  function firebaseSignOut(){
-    try{
+  function firebaseSignOut() {
+    try {
       firebase.auth().signOut()
       console.log("firebase sign out successed")
-    }catch(error){
+    } catch (error) {
       console.log(error)
     }
   }
@@ -39,7 +39,7 @@ export default function Headers(props) {
           <div className="row align-items-center">
             <div className="col-xl-2 col-lg-6 col-md-6 col-7 col-sm-5 d-flex align-items-center pos-relative">
               <div className="logo">
-                <a href="_blank"><img src="./assets/logo_shop.png" alt="" /></a>
+                <Link to={`/`}><img src="./assets/logo-duong.png" alt="logo-duong"/></Link>
               </div>
 
               <div className="category-menu">
@@ -83,7 +83,7 @@ export default function Headers(props) {
                         </li>
                       </ul>
                     </li>
-                    
+
                     {/* <Route path="/details" component={ItemDetail} />
                       <Route path="/register" component={RegisterForm} />
                       <Route path="/login" component={LoginForm} /> */}
@@ -103,8 +103,8 @@ export default function Headers(props) {
                   </li>
 
                   <li className="login-btn"><a href="_blank" ><i className="far fa-user"></i></a></li>
-                  <li className="login-btn"><a href="_blank" onClick={firebaseSignOut}><i class="fas fa-sign-out-alt"></i></a></li>
-                  
+                  <li className="login-btn"><a href="_blank" onClick={firebaseSignOut}><i className="fas fa-sign-out-alt"></i></a></li>
+
                   <li className="d-shop-cart"><a href="_blank"><i className="fas fa-shopping-cart"></i> <span className="cart-count">{props.totalItem}</span></a>
                     <ul className="minicart" id="minicart">
                       {/* CartItem start */}
