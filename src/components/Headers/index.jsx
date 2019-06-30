@@ -56,7 +56,7 @@ export default function Headers(props) {
                 </ul>
               </div>
             </div>
-            <div className="col-xl-8 col-lg-6 col-md-8 col-8 d-none d-xl-block">
+            <div className="col-xl-7 col-lg-6 col-md-8 col-8 d-none d-xl-block">
               <div className="main-menu text-center">
                 <nav id="mobile-menu" style={{ display: "block" }}>
                   <ul>
@@ -83,9 +83,7 @@ export default function Headers(props) {
                         </li>
                       </ul>
                     </li>
-                    <li>
-                      <button type="button" className="btn btn-danger" onClick={firebaseSignOut}>Sign out</button>
-                    </li>
+                    
                     {/* <Route path="/details" component={ItemDetail} />
                       <Route path="/register" component={RegisterForm} />
                       <Route path="/login" component={LoginForm} /> */}
@@ -93,7 +91,7 @@ export default function Headers(props) {
                 </nav>
               </div>
             </div>
-            <div className="col-xl-2 col-lg-6 col-md-6 col-5 col-sm-7 pl-0">
+            <div className="col-xl-3 col-lg-6 col-md-6 col-5 col-sm-7 pl-0">
               <div className="header-right f-right">
                 <ul>
                   <div className="total-price">
@@ -104,7 +102,9 @@ export default function Headers(props) {
                     <a className="search-btn nav-search search-trigger" href="_blank"><i className="fas fa-search"></i></a>
                   </li>
 
-                  <li className="login-btn"><a href="_blank"><i className="far fa-user"></i></a></li>
+                  <li className="login-btn"><a href="_blank" ><i className="far fa-user"></i></a></li>
+                  <li className="login-btn"><a href="_blank" onClick={firebaseSignOut}><i class="fas fa-sign-out-alt"></i></a></li>
+                  
                   <li className="d-shop-cart"><a href="_blank"><i className="fas fa-shopping-cart"></i> <span className="cart-count">{props.totalItem}</span></a>
                     <ul className="minicart" id="minicart">
                       {/* CartItem start */}
