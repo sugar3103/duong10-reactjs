@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import firebase from "firebase";
-import { async } from 'q';
+import * as firebase from 'firebase';
+
 
 
 export default function LoginForm() {
@@ -12,10 +12,13 @@ export default function LoginForm() {
             await firebase.auth().signInWithEmailAndPassword(email, password);
             setEmail("")
             setPassword("")
+
+
         } catch (error) {
-            console.log(error)
-            
+            console.log(error.message)
+
         }
+
         console.log(email, password)
 
     }
@@ -54,14 +57,14 @@ export default function LoginForm() {
                                 <form onSubmit={onSubmit}>
                                     <label htmlFor="name">Email Address <span>**</span></label>
                                     <input id="name"
-                                        value = {email}
+                                        value={email}
                                         type="text"
                                         placeholder="Enter Username or Email address..."
                                         onChange={onChangeEmail} />
                                     <label htmlFor="pass">Password <span>**</span></label>
                                     <input id="pass"
                                         type="password"
-                                        value = {password}
+                                        value={password}
                                         placeholder="Enter password..."
                                         onChange={onChangePassWord} />
                                     <div className="login-action mb-20 fix">

@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import firebase from "firebase";
-import { async } from "q";
+import React, { useState } from "react";
+import * as firebase from 'firebase';
+
 
 export default function RegisterForm() {
     const [username, setUsername] = useState("");
@@ -8,18 +8,19 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("");
     const onSubmit = async (e) => {
         e.preventDefault();
-        try{
-            await firebase.auth().createUserWithEmailAndPassword(email, password)
-        }catch(error){
+        try {
+            await firebase.auth().createUserWithEmailAndPassword(email, password);
+            setUsername("");
+            setEmail("");
+            setPassword("");
+        } catch (error) {
             console.log(error.message)
         }
-        setUsername("");
-        setEmail("");
-        setPassword("");
+
         console.log(username, email, password)
     }
-    const onUsernameChange = (e)=> {
-        setUsername(e.target.value)        
+    const onUsernameChange = (e) => {
+        setUsername(e.target.value)
     }
     const onEmailChange = (e) => {
         setEmail(e.target.value)
@@ -55,23 +56,23 @@ export default function RegisterForm() {
                                 <h3 className="text-center mb-60">Signup From Here</h3>
                                 <form onSubmit={onSubmit} action="#">
                                     <label htmlFor="name">Username <span>**</span></label>
-                                    <input onChange={onUsernameChange} 
-                                    id="name" 
-                                    value = {username}
-                                    type="text" 
-                                    placeholder="Enter Username or Email address..." />
+                                    <input onChange={onUsernameChange}
+                                        id="name"
+                                        value={username}
+                                        type="text"
+                                        placeholder="Enter Username or Email address..." />
                                     <label htmlFor="email-id">Email Address <span>**</span></label>
-                                    <input onChange={onEmailChange} 
-                                    value = {email}
-                                    id="email-id" 
-                                    type="text" 
-                                    placeholder="Enter Username or Email address..." />
+                                    <input onChange={onEmailChange}
+                                        value={email}
+                                        id="email-id"
+                                        type="text"
+                                        placeholder="Enter Username or Email address..." />
                                     <label htmlFor="pass">Password <span>**</span></label>
-                                    <input onChange={onPasswordChange} 
-                                    id="pass" 
-                                    value={password}
-                                    type="password" 
-                                    placeholder="Enter password..." />
+                                    <input onChange={onPasswordChange}
+                                        id="pass"
+                                        value={password}
+                                        type="password"
+                                        placeholder="Enter password..." />
                                     <div className="mt-10" />
                                     <button className="btn theme-btn-2 w-100">Register Now</button>
                                     <div className="or-divide"><span>or</span></div>

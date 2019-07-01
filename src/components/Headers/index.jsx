@@ -1,7 +1,7 @@
 import React from "react";
 import CartIem from "../CartItem";
 import { Link } from "react-router-dom";
-import * as firebase from "firebase";
+import * as firebase from 'firebase';
 
 
 
@@ -67,10 +67,13 @@ export default function Headers(props) {
                       <Link to={`/`}>Home</Link>
                     </li>
                     <li>
-                      <a href="_blank">Pages</a>
+                      <a href="_blank">Menu</a>
                       <ul className="submenu">
                         <li>
-                          <Link to={`/details`}>Product Detail</Link>
+                          <Link to={`/`}>Product List</Link>
+                        </li>
+                        <li>
+                          <Link to={`/product-detail`}>Product Detail</Link>
                         </li>
                         <li>
                           <Link to={`/login`}>Login</Link>

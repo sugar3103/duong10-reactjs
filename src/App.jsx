@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import * as firebase from "firebase";
+import * as firebase from 'firebase';
 // import ProductList from "./components/ProductList";
 // import RegisterForm from "./components/RegisterForm";
 // import LoginForm from "./components/LoginForm";
@@ -11,29 +10,38 @@ import Page404 from "./components/Page404";
 import Loading from "./components/Loading";
 import Layout from "./components/Layout";
 import result from "./data.json";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import * as initFirebase from './firebaseConfig';
 
 const ProductList = React.lazy(() => import("./components/ProductList"));
 const RegisterForm = React.lazy(() => import("./components/RegisterForm"));
 const LoginForm = React.lazy(() => import("./components/LoginForm"));
 const ProductDetail = React.lazy(() => import("./components/ProductDetail"));
+
 function App() {
-  
-  try {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user === null) {
-        // <Link to={"./login"}></Link>
-        console.log("the user is NULL")
-      } else {
-        // <Link to={"./register"}></Link>;
-        console.log(user)
-      }
-      console.log(user)
-    })
-  } catch (error) {
-    console.log(error)
-  }
+  firebase.auth().onAuthStateChanged((user) => console.log(user));
+  console.log(!firebase.auth().onAuthStateChange);
+
+  // function PrivateRoute({ component: Component, ...rest }) {
+  //   return (
+  //     <Route
+  //       {...rest}
+  //       render={props =>
+  //         firebase.auth().onAuthStateChanged ? (
+  //           <Component {...props} />
+  //         ) : (
+  //             <Redirect
+  //               to={{
+  //                 pathname: "/login",
+  //                 state: { from: props.location }
+  //               }}
+  //             />
+  //           )
+  //       }
+  //     />
+  //   );
+  // }
+
 
   const [itemInCart, setItemInCart] = useState([]);
   const [dataGlobal, setdataGlobal] = useState(result.data);
@@ -123,6 +131,7 @@ function App() {
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
             {/* <Route path="/loading" component={Loading} /> */}
+
             <Route component={Page404} />
           </Switch>
         </React.Suspense>

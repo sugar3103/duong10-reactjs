@@ -4,8 +4,7 @@ import SearchItem from "../SearchItem"
 
 
 
-export default function ProductList(props) {
-    
+export default function ProductList(props) {   
     return (
         <>
             <main >
@@ -14,8 +13,6 @@ export default function ProductList(props) {
                         <div className="row">
                             <div className="col-xl-9 col-lg-8">
                                 {/* <!-- tab filter --> */}
-
-
                                 <div className="row mb-10">
                                     <div className="col-xl-5 col-lg-6 col-md-6">
                                         <div className="product-showing mb-40">
@@ -30,7 +27,7 @@ export default function ProductList(props) {
                                         
                                             {/* <!-- ProductItem --> */}
                                             {props.data.map(ele =>
-                                                <ProductItem {...ele} clickFromItem={props.clickFromItem}/>
+                                                <ProductItem {...ele} key={ele.product_id} clickFromItem={props.clickFromItem}/>
                                             )}
 
                                         </div>
