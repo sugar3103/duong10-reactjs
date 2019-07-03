@@ -5,43 +5,24 @@ import * as firebase from 'firebase';
 // import RegisterForm from "./components/RegisterForm";
 // import LoginForm from "./components/LoginForm";
 // import ProductDetail from "./components/ProductDetail";
-import TodoList from "./components/TodoList";
-import Page404 from "./components/Page404";
 import Loading from "./components/Loading";
 import Layout from "./components/Layout";
+import PrivateRoute from "./components/PrivateRoute";
 import result from "./data.json";
-import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import * as initFirebase from './firebaseConfig';
 
 const ProductList = React.lazy(() => import("./components/ProductList"));
 const RegisterForm = React.lazy(() => import("./components/RegisterForm"));
 const LoginForm = React.lazy(() => import("./components/LoginForm"));
 const ProductDetail = React.lazy(() => import("./components/ProductDetail"));
+const TodoList = React.lazy(() => import("./components/TodoList"));
+const Page404 = React.lazy(() => import("./components/Page404"));
+
 
 function App() {
   firebase.auth().onAuthStateChanged((user) => console.log(user));
   console.log(!firebase.auth().onAuthStateChange);
-
-  // function PrivateRoute({ component: Component, ...rest }) {
-  //   return (
-  //     <Route
-  //       {...rest}
-  //       render={props =>
-  //         firebase.auth().onAuthStateChanged ? (
-  //           <Component {...props} />
-  //         ) : (
-  //             <Redirect
-  //               to={{
-  //                 pathname: "/login",
-  //                 state: { from: props.location }
-  //               }}
-  //             />
-  //           )
-  //       }
-  //     />
-  //   );
-  // }
-
 
   const [itemInCart, setItemInCart] = useState([]);
   const [dataGlobal, setdataGlobal] = useState(result.data);
@@ -125,14 +106,18 @@ function App() {
             <Route path="/" exact render={() => (<ProductList data={dataGlobal} clickFromItem={onClickBtn}
               aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />)}
             />
-            <Route path="/product-detail/:id" render={(propsOfRouter) => (<ProductDetail {...propsOfRouter}
-              selectedItem={selectedItem} findSelectedItem={findSelectedItem} />)}
+            <PrivateRoute path="/product-detail/:id" render={
+              (propsOfRouter) => (
+                <ProductDetail {...propsOfRouter}
+                  selectedItem={selectedItem}
+                  findSelectedItem={findSelectedItem} />)}
             />
+            <PrivateRoute component={Page404} />
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
             {/* <Route path="/loading" component={Loading} /> */}
 
-            <Route component={Page404} />
+            
           </Switch>
         </React.Suspense>
         {/* <!-- ProductList start --> */}
