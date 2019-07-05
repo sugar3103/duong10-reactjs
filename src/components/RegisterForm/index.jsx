@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import * as firebase from 'firebase';
 
 
-export default function RegisterForm() {
+export default function RegisterForm(props) {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -13,8 +14,10 @@ export default function RegisterForm() {
             setUsername("");
             setEmail("");
             setPassword("");
+            props.history.push("/login")
         } catch (error) {
             console.log(error.message)
+            setError(error.message)
         }
 
         console.log(username, email, password)
@@ -27,6 +30,9 @@ export default function RegisterForm() {
     }
     const onPasswordChange = (e) => {
         setPassword(e.target.value)
+    }
+    const onLogin = ()=>{
+        props.history.push("/login")
     }
     return (
         <main>
@@ -76,7 +82,7 @@ export default function RegisterForm() {
                                     <div className="mt-10" />
                                     <button className="btn theme-btn-2 w-100">Register Now</button>
                                     <div className="or-divide"><span>or</span></div>
-                                    <button className="btn theme-btn w-100">login Now</button>
+                                    <button className="btn theme-btn w-100" onClick={onLogin}>Go to Login Page</button>
                                 </form>
                             </div>
                         </div>

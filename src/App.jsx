@@ -22,7 +22,6 @@ const Page404 = React.lazy(() => import("./components/Page404"));
 
 function App() {
   firebase.auth().onAuthStateChanged((user) => console.log(user));
-  console.log(!firebase.auth().onAuthStateChange);
 
   const [itemInCart, setItemInCart] = useState([]);
   const [dataGlobal, setdataGlobal] = useState(result.data);
@@ -31,6 +30,7 @@ function App() {
   const [selectedItem, setSelectedItem] = useState()
 
   const onClickBtn = (props) => {
+    // itemInCart.push({...props, so_luong: 1})
     if (itemInCart.length === 0) {
       itemInCart.push({ ...props, so_luong: 1 });
     }
@@ -112,9 +112,10 @@ function App() {
                   selectedItem={selectedItem}
                   findSelectedItem={findSelectedItem} />)}
             />
-            <PrivateRoute component={Page404} />
+            
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
+            <Route component={Page404} />
             {/* <Route path="/loading" component={Loading} /> */}
 
             

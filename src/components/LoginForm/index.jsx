@@ -3,20 +3,21 @@ import * as firebase from 'firebase';
 
 
 
-export default function LoginForm() {
+export default function LoginForm(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
             await firebase.auth().signInWithEmailAndPassword(email, password);
             setEmail("")
             setPassword("")
-
+            props.history.push("/")
 
         } catch (error) {
             console.log(error.message)
-
+            setError(error.message)
         }
 
         console.log(email, password)
@@ -27,6 +28,9 @@ export default function LoginForm() {
     }
     const onChangePassWord = (e) => {
         setPassword(e.target.value)
+    }
+    const onRegister = ()=> {
+        props.history.push('./register')
     }
     return (
         <main>
@@ -78,7 +82,7 @@ export default function LoginForm() {
                                     </div>
                                     <button className="btn theme-btn-2 w-100">Login Now</button>
                                     <div className="or-divide"><span>or</span></div>
-                                    <button className="btn theme-btn w-100">Register Now</button>
+                                    <button className="btn theme-btn w-100" onClick={onRegister}>Go to Register Page</button>
                                 </form>
                             </div>
                         </div>

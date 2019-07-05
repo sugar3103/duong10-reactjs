@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
 export default function Headers(props) {
   // function clock() {// We create a new Date object and assign it to a variable called "time".
   //   var time = new Date(),
-  //     // Access the "getHours" method on the Date object with the dot accessor.
+  //     // Access the "getHours" method on the Date object w ith the dot accessor.
   //     hours = time.getHours(),
   //     // Access the "getMinutes" method with the dot accessor.
   //     minutes = time.getMinutes(),

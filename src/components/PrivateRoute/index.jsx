@@ -10,7 +10,7 @@ function PrivateRoute({ component: Component, render, ...rest }) {
         console.log(result, "result")
         setUser(result)
       });
-    }, [setUser]  )
+    }, [setUser])
   
     if (user === undefined) {
       return <Loading />
@@ -21,10 +21,8 @@ function PrivateRoute({ component: Component, render, ...rest }) {
         if(Component) {
           return <Component {...props} />
         }
-  
         return render(props)
       }
-  
       return (
         <Redirect
           to={{
@@ -32,8 +30,7 @@ function PrivateRoute({ component: Component, render, ...rest }) {
             state: { from: props.location }
           }}
         />
-      )
-      
+      )      
     }
     return (
       <Route
