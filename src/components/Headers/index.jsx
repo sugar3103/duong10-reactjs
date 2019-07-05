@@ -23,10 +23,11 @@ export default function Headers(props) {
   //   }
   // }
   // setInterval(clock, 500);
-  function firebaseSignOut() {
+  const firebaseSignOut = async (props) => {
     try {
-      firebase.auth().signOut()
+      await firebase.auth().signOut()
       console.log("firebase sign out successed")
+      props.history.push("/")
     } catch (error) {
       console.log(error)
     }
@@ -106,7 +107,7 @@ export default function Headers(props) {
                   </li>
 
                   <li className="login-btn"><a href="_blank" ><i className="far fa-user"></i></a></li>
-                  <li className="login-btn"><a href="_blank" onClick={firebaseSignOut}><i className="fas fa-sign-out-alt"></i></a></li>
+                  <li className="login-btn"><a href="/" onClick={firebaseSignOut}><i className="fas fa-sign-out-alt"></i></a></li>
 
                   <li className="d-shop-cart"><a href="_blank"><i className="fas fa-shopping-cart"></i> <span className="cart-count">{props.totalItem}</span></a>
                     <ul className="minicart" id="minicart">
