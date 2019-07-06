@@ -13,7 +13,6 @@ export default function CartItem(props) {
 
                 <div className="cart-content">
                     <h3>
-                        
                         <a href="_blank">{props.name}</a>
                     </h3>
                     <div className="cart-price">

@@ -1,31 +1,10 @@
 import React from "react";
 import ProductItem from "../ProductItem";
 import SearchItem from "../SearchItem"
-import {Route, Redirect} from "react-router-dom";
-import * as firebase from "firebase";
-
-
 
 export default function ProductList(props) {
-    function PrivateRoute({ component: Component, ...rest }) {
-      return (
-        <Route
-          {...rest}
-          render={props =>
-            firebase.auth().onAuthStateChanged ? (
-              <Component {...props} />
-            ) : (
-                <Redirect
-                  to={{
-                    pathname: "/login",
-                    state: { from: props.location }
-                  }}
-                />
-              )
-          }
-        />
-      );
-    }
+    
+    const total = props.data.map(ele => 1).reduce((a,b)=>a+b)
     return (
         <>
             <main >
@@ -37,7 +16,7 @@ export default function ProductList(props) {
                                 <div className="row mb-10">
                                     <div className="col-xl-5 col-lg-6 col-md-6">
                                         <div className="product-showing mb-40">
-                                            <p>Showing 1–22 of 32 results</p>
+                                            <p>Showing 1–{total} of {total} results</p>
                                         </div>
                                     </div>
                                 </div>

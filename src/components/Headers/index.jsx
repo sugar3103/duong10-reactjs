@@ -87,10 +87,6 @@ export default function Headers(props) {
                         </li>
                       </ul>
                     </li>
-
-                    {/* <Route path="/details" component={ItemDetail} />
-                      <Route path="/register" component={RegisterForm} />
-                      <Route path="/login" component={LoginForm} /> */}
                   </ul>
                 </nav>
               </div>

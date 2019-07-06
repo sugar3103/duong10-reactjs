@@ -1,26 +1,26 @@
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "./LoginForm.action";
 const initialState = {
-    result: null,
-    load: false,
-    fail: null
+    data: null,
+    loading: false,
+    error: null
 }
 
-export default function LoginReducer(state = initialState, action) {
+export default function loginReducer(state = initialState, action) {
     switch (action.type) {
         case LOGIN_REQUEST:
-            return Object.assign({}, state, {
-                load: true
-            })
+            return {...state,
+                loading: true
+            }
         case LOGIN_SUCCESS:
-            return Object.assign({}, state, {
-                load: false,
-                result: action.payload
-            })
+            return {...state,
+                loading: false,
+                data: action.payload
+            }
         case LOGIN_FAILURE:
-            return Object.assign({}, state, {
-                load: false,
-                fail: action.error
-            })
+            return {...state,
+                loading: false,
+                error: action.error
+            }
         default:
             return state
     }

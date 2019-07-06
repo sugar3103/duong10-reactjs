@@ -1,4 +1,4 @@
-import { PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, PRODUCT_DETAIL_FAILURE } from "./ProductList.action";
+import { PRODUCT_DETAIL_REQUEST, PRODUCT_DETAIL_SUCCESS, PRODUCT_DETAIL_FAILURE } from "./ProductDetail.action";
 const initialState = {
     result: null,
     load: false,
@@ -8,19 +8,20 @@ const initialState = {
 export default function ProductDetailReducer(state = initialState, action) {
     switch (action.type) {
         case PRODUCT_DETAIL_REQUEST:
-            return Object.assign({}, state, {
+            return {...state,
                 load: true
-            })
+            }
         case PRODUCT_DETAIL_SUCCESS:
-            return Object.assign({}, state, {
+            return {...state,
                 load: false,
                 result: action.payload
-            })
+            }
         case PRODUCT_DETAIL_FAILURE:
-            return Object.assign({}, state, {
+            return {
+                state,
                 load: false,
                 fail: action.error
-            })
+            }
         default:
             return state
     }

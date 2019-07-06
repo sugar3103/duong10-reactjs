@@ -24,4 +24,4 @@ function getRegisterFailure(error) {
 
     }
 }
-store.dispath(getRegisterSuccess)
+// store.dispath(getRegisterSuccess)

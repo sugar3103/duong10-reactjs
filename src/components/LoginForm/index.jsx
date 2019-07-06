@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import * as firebase from 'firebase';
+import { getLoginRequest, getLoginFailure } from "./LoginForm.action"
 
 
 
 export default function LoginForm(props) {
+    console.log(props)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError] = useState("")
+    // const [error, setError] = useState("")
+    const { error, loading } = props;
     const onSubmit = async (e) => {
+        props.dispatch(getLoginRequest())
         e.preventDefault();
         try {
             await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -16,8 +20,8 @@ export default function LoginForm(props) {
             props.history.push("/")
 
         } catch (error) {
+            props.dispatch(getLoginFailure(error.message))
             console.log(error.message)
-            setError(error.message)
         }
 
         console.log(email, password)
@@ -29,7 +33,7 @@ export default function LoginForm(props) {
     const onChangePassWord = (e) => {
         setPassword(e.target.value)
     }
-    const onRegister = ()=> {
+    const onRegister = () => {
         props.history.push('./register')
     }
     return (
@@ -58,6 +62,7 @@ export default function LoginForm(props) {
                         <div className="col-lg-8 offset-lg-2">
                             <div className="basic-login">
                                 <h3 className="text-center mb-60">Login From Here</h3>
+                                <p className="text-danger">{error}</p>
                                 <form onSubmit={onSubmit}>
                                     <label htmlFor="name">Email Address <span>**</span></label>
                                     <input id="name"

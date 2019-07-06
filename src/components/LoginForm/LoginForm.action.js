@@ -3,24 +3,43 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 //Action creator
-function getLoginRequest() {
+export function getLoginRequest() {
     return {
         type: LOGIN_REQUEST,
         //payload
     }
 }
 
-function getLoginSuccess(result) {
+export function getLoginSuccess(data) {
     return {
         type: LOGIN_SUCCESS,
-        payload: result
+        payload: data
     }
 }
 
-function getLoginFailure(error) {
+export function getLoginFailure(error) {
     return {
         type: LOGIN_FAILURE,
         error
     }
 }
-store.dispath(getLoginSuccess)
+export async function login(email, password) {
+    return async(dispatch) => {
+        props.dispatch(getLoginRequest())
+        e.preventDefault();
+        try {
+            await firebase.auth().signInWithEmailAndPassword(email, password);
+            setEmail("")
+            setPassword("")
+            props.history.push("/")
+
+        } catch (error) {
+            props.dispatch(getLoginFailure(error.message))
+            console.log(error.message)
+        }
+
+        console.log(email, password)
+
+    }
+}
+// store.dispath(getLoginSuccess)

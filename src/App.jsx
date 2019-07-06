@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 // import ProductList from "./components/ProductList";
@@ -9,12 +9,12 @@ import Loading from "./components/Loading";
 import Layout from "./components/Layout";
 import PrivateRoute from "./components/PrivateRoute";
 import result from "./data.json";
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as initFirebase from './firebaseConfig';
 
 const ProductList = React.lazy(() => import("./components/ProductList"));
 const RegisterForm = React.lazy(() => import("./components/RegisterForm"));
-const LoginForm = React.lazy(() => import("./components/LoginForm"));
+const LoginForm = React.lazy(() => import("./components/LoginForm/LoginForm.container"));
 const ProductDetail = React.lazy(() => import("./components/ProductDetail"));
 const TodoList = React.lazy(() => import("./components/TodoList"));
 const Page404 = React.lazy(() => import("./components/Page404"));
@@ -29,33 +29,40 @@ function App() {
   const [totalItem, setTotalItem] = useState(0);
   const [selectedItem, setSelectedItem] = useState()
 
+  useEffect(() => {
+    if(itemInCart.length > 0) {
+      const totalPrice = itemInCart.map(ele => ele.final_price * ele.so_luong).reduce((a, b) => a + b, 0)
+      setTotalCart(totalPrice)
+      setTotalItem((totalItem) => totalItem + 1)
+    }
+  }, [itemInCart])
+
   const onClickBtn = (props) => {
     // itemInCart.push({...props, so_luong: 1})
-    if (itemInCart.length === 0) {
-      itemInCart.push({ ...props, so_luong: 1 });
-    }
-    const existProductInCart = itemInCart.find(product => product.product_id === props.product_id)
-    // Bị trùng sản phẩm trong giỏ hàng => cập nhật số lương
-    if (existProductInCart) {
-      const newCart = itemInCart.map(product => {
-        if (product.product_id === props.product_id) {
-          return {
-            ...product,
-            so_luong: product.so_luong + 1
-          }
-        }
-        return product
-      })
-
-      setItemInCart(newCart)
+    if (!itemInCart.length) {
+      setItemInCart(state => ([...state, { ...props, so_luong: 1 }]))
+      // itemInCart.push({ ...props, so_luong: 1 });
     } else {
-      // chưa có sản phẩm này trong giỏ hàng => thêm mới vào
-      itemInCart.push({ ...props, so_luong: 1 })
+      const existProductInCart = itemInCart.find(product => product.product_id === props.product_id)
+      // Bị trùng sản phẩm trong giỏ hàng => cập nhật số lương
+      if (existProductInCart) {
+        const newCart = itemInCart.map(product => {
+          if (product.product_id === props.product_id) {
+            return {
+              ...product,
+              so_luong: product.so_luong + 1
+            }
+          }
+          return product
+        })
+        setItemInCart(newCart)
+      } else {
+        // chưa có sản phẩm này trong giỏ hàng => thêm mới vào
+        setItemInCart(state => ([...state, { ...props, so_luong: 1 }]))
+      }
     }
-
-    setTotalCart(itemInCart.map(ele => ele.final_price * ele.so_luong).reduce((a, b) => a + b))
-    setTotalItem(totalItem + 1)
   };
+
   const findSelectedItem = (productId) => {
     const item = result.data.find(item => item.product_id === parseInt(productId, 10))
     setSelectedItem(item)

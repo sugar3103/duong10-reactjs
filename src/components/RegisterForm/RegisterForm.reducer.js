@@ -8,19 +8,19 @@ const initialState = {
 export default function RegisterReducer(state = initialState, action) {
     switch (action.type) {
         case REGISTER_REQUEST:
-            return Object.assign({}, state, {
+            return {...state,
                 load: true
-            })
+            }
         case REGISTER_SUCCESS:
-            return Object.assign({}, state, {
+            return {...state,
                 load: false,
                 result: action.payload
-            })
+            }
         case REGISTER_FAILURE:
-            return Object.assign({}, state, {
+            return {...state,
                 load: false,
                 fail: action.error
-            })
+            }
         default:
             return state
     }

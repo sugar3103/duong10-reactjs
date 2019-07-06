@@ -23,4 +23,4 @@ function getProductsFailure(error) {
         error
     }
 }
-store.dispath(getProductsSuccess)
+// store.dispath(getProductsSuccess)
