@@ -14,7 +14,7 @@ import * as initFirebase from './firebaseConfig';
 
 const ProductList = React.lazy(() => import("./components/ProductList"));
 const RegisterForm = React.lazy(() => import("./components/RegisterForm"));
-const LoginForm = React.lazy(() => import("./components/LoginForm/LoginForm.container"));
+const LoginForm = React.lazy(() => import("./components/LoginForm"));
 const ProductDetail = React.lazy(() => import("./components/ProductDetail"));
 const TodoList = React.lazy(() => import("./components/TodoList"));
 const Page404 = React.lazy(() => import("./components/Page404"));

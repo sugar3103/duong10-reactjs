@@ -1,31 +1,23 @@
 import React, { useState } from 'react';
 import * as firebase from 'firebase';
-import { getLoginRequest, getLoginFailure } from "./LoginForm.action"
-
 
 
 export default function LoginForm(props) {
-    console.log(props)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    // const [error, setError] = useState("")
-    const { error, loading } = props;
+    const [error, setError] = useState("")
     const onSubmit = async (e) => {
-        props.dispatch(getLoginRequest())
         e.preventDefault();
         try {
             await firebase.auth().signInWithEmailAndPassword(email, password);
             setEmail("")
             setPassword("")
             props.history.push("/")
-
         } catch (error) {
-            props.dispatch(getLoginFailure(error.message))
+            setError(error)
             console.log(error.message)
         }
-
         console.log(email, password)
-
     }
     const onChangeEmail = (e) => {
         setEmail(e.target.value)
