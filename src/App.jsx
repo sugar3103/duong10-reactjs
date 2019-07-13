@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import result from "./data.json";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as initFirebase from './firebaseConfig';
+import * as $ from 'jquery';
 
 const ProductList = React.lazy(() => import("./components/ProductList"));
 const RegisterForm = React.lazy(() => import("./components/RegisterForm"));
@@ -24,13 +25,28 @@ function App() {
   firebase.auth().onAuthStateChanged((user) => console.log(user));
 
   const [itemInCart, setItemInCart] = useState([]);
-  const [dataGlobal, setdataGlobal] = useState(result.data);
+  const [dataGlobal, setdataGlobal] = useState([]);
   const [totalCart, setTotalCart] = useState(0);
   const [totalItem, setTotalItem] = useState(0);
   const [selectedItem, setSelectedItem] = useState()
 
   useEffect(() => {
-    if(itemInCart.length > 0) {
+    const dataFromAPI = (url, method) => {
+      $.ajax({
+        url: url,
+        method: method
+      }).done(result => {
+        setdataGlobal(result.data)
+      }).catch(error => console.log(error))
+    }
+    const getProduct = category => {
+      dataFromAPI(`https://mapi.sendo.vn/mob/product/cat/${category}/?p=1`, "GET");
+    }
+    getProduct('usb')
+  }, [])
+
+  useEffect(() => {
+    if (itemInCart.length > 0) {
       const totalPrice = itemInCart.map(ele => ele.final_price * ele.so_luong).reduce((a, b) => a + b, 0)
       setTotalCart(totalPrice)
       setTotalItem((totalItem) => totalItem + 1)
@@ -119,13 +135,13 @@ function App() {
                   selectedItem={selectedItem}
                   findSelectedItem={findSelectedItem} />)}
             />
-            
+
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
             <Route component={Page404} />
             {/* <Route path="/loading" component={Loading} /> */}
 
-            
+
           </Switch>
         </React.Suspense>
         {/* <!-- ProductList start --> */}

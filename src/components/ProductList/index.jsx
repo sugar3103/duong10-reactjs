@@ -4,7 +4,7 @@ import SearchItem from "../SearchItem"
 
 export default function ProductList(props) {
     
-    const total = props.data.map(ele => 1).reduce((a,b)=>a+b)
+    const total = props.data.map(ele => 1).reduce((a , b) => a + b, 0)
     return (
         <>
             <main >
@@ -29,6 +29,7 @@ export default function ProductList(props) {
                                             {props.data.map(ele =>
                                                 <ProductItem {...ele} key={ele.product_id} clickFromItem={props.clickFromItem} />
                                             )}
+                                            {console.log("Product List",props)}
 
                                         </div>
                                     </div>
