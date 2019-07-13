@@ -29,7 +29,7 @@ export default function ProductList(props) {
                                             {props.data.map(ele =>
                                                 <ProductItem {...ele} key={ele.product_id} clickFromItem={props.clickFromItem} />
                                             )}
-                                            {console.log("Product List",props)}
+                                            {/* {console.log("Product List",props)} */}
 
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@ export default function ProductList(props) {
                             <div className="col-xl-3 col-lg-4">
                                 <div className="sidebar-shop">
                                     {/* search the item start */}
-                                    <SearchItem />
+                                    <SearchItem searchItem={props.searchItem}/>
                                     {/* search the item end */}
                                     {/* <!--
                             <div className="shop-widget">

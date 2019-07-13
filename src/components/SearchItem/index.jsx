@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
 
-export default function SearchItem() {
+export default function SearchItem(props) {
     const [item, setItem] = useState("");
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(item)
+        props.searchItem(item)
     }
     const onItemChange = (e) => {
         setItem(e.target.value)

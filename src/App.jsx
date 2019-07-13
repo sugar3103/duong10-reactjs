@@ -30,19 +30,20 @@ function App() {
   const [totalItem, setTotalItem] = useState(0);
   const [selectedItem, setSelectedItem] = useState()
 
+  const dataFromAPI = (url, method) => {
+    $.ajax({
+      url: url,
+      method: method
+    }).done(result => {
+      setdataGlobal(result.data)
+    }).catch(error => console.log("error from API Sendo ",error))
+  }
   useEffect(() => {
-    const dataFromAPI = (url, method) => {
-      $.ajax({
-        url: url,
-        method: method
-      }).done(result => {
-        setdataGlobal(result.data)
-      }).catch(error => console.log(error))
-    }
     const getProduct = category => {
       dataFromAPI(`https://mapi.sendo.vn/mob/product/cat/${category}/?p=1`, "GET");
     }
     getProduct('usb')
+    console.log("Data from API from APP",dataGlobal)
   }, [])
 
   useEffect(() => {
@@ -78,12 +79,15 @@ function App() {
       }
     }
   };
-
+  const searchItem = (item) => {
+    console.log("search Item from App", item)
+    const getProduct = () => dataFromAPI(`https://mapi.sendo.vn/mob/product/search?p=1&q=${item}`, "GET")
+    getProduct()
+  }
   const findSelectedItem = (productId) => {
     const item = result.data.find(item => item.product_id === parseInt(productId, 10))
     setSelectedItem(item)
   }
-
 
   console.log("Total Cart : ", totalCart)
   console.log("Total Item : ", totalItem)
@@ -127,6 +131,7 @@ function App() {
           <Switch>
 
             <Route path="/" exact render={() => (<ProductList data={dataGlobal} clickFromItem={onClickBtn}
+              searchItem={searchItem}
               aToZ={aToZ} zToA={zToA} highToLow={highToLow} lowToHigh={lowToHigh} filterSale={filterSale} />)}
             />
             <PrivateRoute path="/product-detail/:id" render={
