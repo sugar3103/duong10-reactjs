@@ -2,19 +2,22 @@ import React from "react";
 
 export default function CartItem(props) {
     return (
-        <>  
+        <>
             <li>
                 <div style={{}} className="cart-img">
                     <a href="_blank">
                         <img src={props.img_url} alt="" />
-                        
+
                     </a>
                 </div>
 
                 <div className="cart-content">
-                    <h3>
-                        <a href="_blank">{props.name}</a>
-                    </h3>
+                    <div style={{ width: 150 }}>
+                        <h3>
+                            <a href="_blank">{props.name}</a>
+                        </h3>
+                    </div>
+
                     <div className="cart-price">
                         <span className="new">{props.final_price.toLocaleString()}</span>
                         <span> </span>
@@ -31,7 +34,7 @@ export default function CartItem(props) {
                 </div>
             </li>
 
-            
+
 
         </>
     )

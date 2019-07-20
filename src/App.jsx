@@ -43,7 +43,7 @@ function App() {
       dataFromAPI(`https://mapi.sendo.vn/mob/product/cat/${category}/?p=1`, "GET");
     }
     getProduct('usb')
-    console.log("Data from API from APP",dataGlobal)
+    // console.log("Data from API from APP",dataGlobal)
   }, [])
 
   useEffect(() => {
